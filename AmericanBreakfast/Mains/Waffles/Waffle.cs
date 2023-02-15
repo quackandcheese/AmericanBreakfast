@@ -31,7 +31,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.ApplyMaterialToChild("Waffle", "Bread - Cooked", "Cooked Batter", "Onion");
+            Prefab.ApplyMaterialToChild("Waffle", "Onion", "Cooked Batter", "Bread - Cooked");
         }
     }
 }

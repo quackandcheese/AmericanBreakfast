@@ -18,8 +18,8 @@ namespace KitchenAmericanBreakfast.Mains
     {
         public override string UniqueNameID => "American Breakfast Dish";
         public override DishType Type => DishType.Base;
-        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Pancakes");
-        public override GameObject IconPrefab => Mod.Bundle.LoadAsset<GameObject>("Pancakes");
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfast");
+        public override GameObject IconPrefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfast");
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Small;

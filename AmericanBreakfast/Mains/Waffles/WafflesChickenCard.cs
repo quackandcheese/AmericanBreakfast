@@ -14,9 +14,9 @@ using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class PancakeBaconCard : CustomDish
+    class WafflesChickenCard : CustomDish
     {
-        public override string UniqueNameID => "PancakeBaconCard";
+        public override string UniqueNameID => "WafflesChickenCard";
         public override DishType Type => DishType.Extra;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
@@ -35,28 +35,27 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Dish.IngredientUnlock
             {
-                Ingredient = Refs.Bacon,
-                MenuItem = Refs.PlatedPancakes
+                Ingredient = Refs.CookedDrumstick,
+                MenuItem = Refs.PlatedWaffles
             }
         };
 
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.Pork
+            Refs.Drumstick
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
-            Refs.Cook,
-            Refs.Chop
+            Refs.Cook
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Chop pork, and cook to make bacon. Add to plated pancakes." }
+            { Locale.English, "Cook and add to plated pancakes. Do not remove the bone." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Pancakes & Bacon", "Adds bacon as a pancake topping", "Smoked and served") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Chicken & Waffles", "Adds chicken as a waffle topping", "A southern classic") )
         };
     }
 }

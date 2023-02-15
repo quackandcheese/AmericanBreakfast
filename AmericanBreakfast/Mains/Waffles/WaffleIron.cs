@@ -1,11 +1,13 @@
 ﻿using IngredientLib.Util;
 using Kitchen;
+using KitchenAmericanBreakfast.Utils;
 using KitchenData;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -58,13 +60,32 @@ namespace KitchenAmericanBreakfast.Mains
             // ...
         };
 
+        // Animator code courtesy of IcedMilo: https://github.com/UrFriendKen/PlateUpAutomationPlus/blob/master/Customs/SmartRotatingGrabber.cs
+        static FieldInfo animator = ReflectionUtils.GetField<ApplianceProcessView>("Animator", BindingFlags.NonPublic | BindingFlags.Instance);
+
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            // Visuals
+            ApplianceProcessView applianceProcessView = Prefab.AddComponent<ApplianceProcessView>();
+
+            animator.SetValue(applianceProcessView, Prefab.GetComponent<Animator>());
 
             var holdTransform = Prefab.GetChildFromPath("HoldPoint").transform;
             var holdPoint = Prefab.AddComponent<HoldPointContainer>();
             holdPoint.HoldPoint = holdTransform;
+
+            // Visuals
+            var iron = Prefab.GetChild("WaffleIron");
+            var counter = iron.GetChild("Base_L_Counter.blend");
+
+            iron.ApplyMaterialToChild("Bottom", "Burned", "Metal Black", "AppleBurnt");
+            iron.ApplyMaterialToChild("Top", "Burned", "Metal Black", "AppleBurnt");
+            iron.ApplyMaterialToChild("Hinge", "Metal Black");
+
+            // Counter
+            iron.ApplyMaterialToChild("Top_L_Counter.blend", "Wood - Default");
+
+            counter.ApplyMaterial("Wood - Default", "Wood 4 - Painted", "Wood 4 - Painted");
+            counter.ApplyMaterialToChild("Handle_L_Counter.blend", "Knob");
         }
     }
 }

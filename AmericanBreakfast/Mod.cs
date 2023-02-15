@@ -1,4 +1,5 @@
 ﻿using KitchenAmericanBreakfast.Mains;
+using KitchenAmericanBreakfast.Mains.Waffles;
 using KitchenLib;
 using KitchenLib.Event;
 using KitchenMods;
@@ -21,7 +22,7 @@ namespace KitchenAmericanBreakfast
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
         // e.g. ">=1.1.3" current and all future
-        // e.g. ">=1.1.3 <=1.2.3" for all from/untill
+        // e.g. ">=1.1.3 <=1.2.3" for all from/until
 
         // Boolean constant whose value depends on whether you built with DEBUG or RELEASE mode, useful for testing
 #if DEBUG
@@ -51,9 +52,19 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<PlatedPancakes>();
             AddGameDataObject<UnmixedBatter>();
 
-            AddGameDataObject<PancakeSyrupCard>();
+            AddGameDataObject<MapleSyrupCard>();
             AddGameDataObject<PancakeBaconCard>();
-            AddGameDataObject<PancakeButterCard>();
+            AddGameDataObject<ButterCard>();
+
+            // Waffles
+            AddGameDataObject<WafflesDish>();
+
+            AddGameDataObject<PlatedWaffles>();
+            AddGameDataObject<Waffle>();
+            AddGameDataObject<WaffleIron>();
+            AddGameDataObject<CookWaffle>();
+
+            AddGameDataObject<WafflesChickenCard>();
 
             LogInfo("Done loading game data.");
         }

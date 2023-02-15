@@ -16,10 +16,10 @@ using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class PlatedPancakes : CustomItemGroup<PlatedPancakesItemGroupView>
+    class PlatedPancakes : CustomItemGroup<AmericanBreakfastItemGroupView>
     {
         public override string UniqueNameID => "PlatedPancakes";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Pancakes");
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfast");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override ItemValue ItemValue => ItemValue.Large;
@@ -85,12 +85,12 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.GetChild("Syrup").ApplyMaterialToChild("Plane.002", "Cooked Batter");
 
 
-            Prefab.GetComponent<PlatedPancakesItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<AmericanBreakfastItemGroupView>()?.Setup(Prefab);
         }
     }
 
 
-    public class PlatedPancakesItemGroupView : ItemGroupView
+    public class AmericanBreakfastItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -118,9 +118,12 @@ namespace KitchenAmericanBreakfast.Mains
                     Item = Refs.ButterSlice,
                     Objects = new List<GameObject>()
                     {
+                        // Pancake
                         GameObjectUtils.GetChildObject(prefab, "Pancakes/Bottom Pancake/Butter - Slice"),
                         GameObjectUtils.GetChildObject(prefab, "Pancakes/Middle Pancake/Butter - Slice.001"),
                         GameObjectUtils.GetChildObject(prefab, "Pancakes/Top Pancake/Butter - Slice.002"),
+                        // Waffle
+                        GameObjectUtils.GetChildObject(prefab, "Waffle/Butter - Slice"),
                     },
                     DrawAll = true
                 },
@@ -133,6 +136,17 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Bacon"),
                     Item = Refs.Bacon
+                },
+                // Waffle
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Waffle"),
+                    Item = Refs.Waffle,
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "drumstick"),
+                    Item = Refs.CookedDrumstick
                 }
             };
         }

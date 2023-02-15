@@ -41,6 +41,8 @@ namespace KitchenAmericanBreakfast
         public static Item UnmixedEggDough => Find<Item>(IngredientLib.References.GetIngredient("unmixed egg dough"));
         public static Item Butter => Find<Item>(IngredientLib.References.GetIngredient("butter"));
         public static Item ButterSlice => Find<Item>(IngredientLib.References.GetSplitIngredient("butter"));
+        public static Item CookedDrumstick => Find<Item>(IngredientLib.References.GetIngredient("cooked drumstick"));
+        public static Item Drumstick => Find<Item>(IngredientLib.References.GetIngredient("drumstick"));
         #endregion
 
         #region Modded References
@@ -51,11 +53,14 @@ namespace KitchenAmericanBreakfast
         public static Item Batter => Find<Item, Batter>();
 
         public static Item Waffle => Find<Item, Waffle>();
+        public static ItemGroup PlatedWaffles => Find<ItemGroup, PlatedWaffles>();
         // Cards
         public static Dish AmericanBreakfastDish => Find<Dish, AmericanBreakfastDish>();
-        public static Dish PancakeSyrupCard => Find<Dish, PancakeSyrupCard>();
+        public static Dish MapleSyrupCard => Find<Dish, MapleSyrupCard>();
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
-        public static Dish PancakeButterCard => Find<Dish, PancakeButterCard>();
+        public static Dish ButterCard => Find<Dish, ButterCard>();
+
+        public static Dish WafflesChickenCard => Find<Dish, WafflesChickenCard>();
 
         // Appliances
         public static Appliance WaffleIron => Find<Appliance, WaffleIron>();

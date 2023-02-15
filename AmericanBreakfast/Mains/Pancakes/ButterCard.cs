@@ -14,11 +14,11 @@ using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class PancakeButterCard : CustomDish
+    class ButterCard : CustomDish
     {
-        public override string UniqueNameID => "PancakeButterCard";
+        public override string UniqueNameID => "ButterCard";
         public override DishType Type => DishType.Extra;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.None;
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
@@ -37,6 +37,11 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 Ingredient = Refs.ButterSlice,
                 MenuItem = Refs.PlatedPancakes
+            },
+            new Dish.IngredientUnlock
+            {
+                Ingredient = Refs.ButterSlice,
+                MenuItem = Refs.PlatedWaffles
             }
         };
 
@@ -51,11 +56,11 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Portion a slice, and add to plated pancakes." }
+            { Locale.English, "Portion a slice, and add to plated breakfast." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Buttered Pancakes", "Adds butter as a pancake topping", "Perfectly balanced") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Butter", "Adds butter as an American Breakfast topping", "Perfectly balanced") )
         };
     }
 }
