@@ -54,7 +54,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Item.ItemProcess
             {
-                Duration = 0.75f,
+                Duration = 0.5f,
                 Process = Refs.Knead,
                 Result = Refs.Batter
             }

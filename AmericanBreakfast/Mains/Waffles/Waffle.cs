@@ -1,15 +1,4 @@
-﻿using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using KitchenAmericanBreakfast.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-
-namespace KitchenAmericanBreakfast.Mains
+﻿namespace KitchenAmericanBreakfast.Mains
 {
     class Waffle : CustomItem
     {

@@ -1,13 +1,35 @@
-﻿using KitchenAmericanBreakfast.Mains;
-using KitchenAmericanBreakfast.Mains.Waffles;
-using KitchenLib;
-using KitchenLib.Event;
-using KitchenMods;
-using System.Linq;
-using System.Reflection;
-using UnityEngine;
+﻿global using KitchenAmericanBreakfast.Mains;
+global using KitchenAmericanBreakfast.Utils;
+global using KitchenAmericanBreakfast.Sides;
 
-// Namespace should have "Kitchen" in the beginning
+global using Kitchen;
+global using KitchenLib.References;
+global using KitchenLib;
+global using KitchenLib.Event;
+global using KitchenMods;
+global using KitchenData;
+global using KitchenLib.Customs;
+global using KitchenLib.Utils;
+
+global using UnityEngine;
+
+global using System;
+global using System.Collections.Generic;
+global using System.Text;
+global using System.Threading.Tasks;
+global using System.Linq;
+global using System.Reflection;
+
+
+global using IngredientLib.Util;
+
+global using static KitchenData.ItemGroup;
+global using static KitchenLib.Utils.GDOUtils;
+global using static KitchenLib.Utils.KitchenPropertiesUtils;
+
+
+
+// Huge thanks to ZekNikZ, IcedMilo, DepletedSupernova, and many others for helping me make this mod along the way!
 namespace KitchenAmericanBreakfast
 {
     public class Mod : BaseMod, IModSystem
@@ -17,7 +39,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.1.0";
+        public const string MOD_VERSION = "0.1.3";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -65,6 +87,13 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<CookWaffle>();
 
             AddGameDataObject<WafflesChickenCard>();
+
+            // OJ
+            AddGameDataObject<OrangeJuice>();
+            AddGameDataObject<OrangeJuiceGlass>();
+            AddGameDataObject<OrangeJuiceProvider>();
+
+            AddGameDataObject<OrangeJuiceCard>();
 
             LogInfo("Done loading game data.");
         }

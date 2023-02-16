@@ -1,13 +1,4 @@
-﻿using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KitchenAmericanBreakfast.Mains
+﻿namespace KitchenAmericanBreakfast.Mains
 {
     class CookWaffle : CustomProcess
     {
@@ -29,7 +20,7 @@ namespace KitchenAmericanBreakfast.Mains
                 var info = new LocalisationObject<ProcessInfo>();
 
                 // Note: for testing, I recommend setting "my_custom_icon" to "knead" for now until we add the custom icon
-                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Proof", "<sprite name=\"chop\">"));
+                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Proof", "<sprite name=\"blend\">"));
 
                 return info;
             }

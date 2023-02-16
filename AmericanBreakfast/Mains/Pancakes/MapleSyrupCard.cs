@@ -1,18 +1,4 @@
-﻿using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using Unity.Entities;
-using KitchenAmericanBreakfast.Utils;
-using KitchenAmericanBreakfast;
-using IngredientLib.Util;
-
-namespace KitchenAmericanBreakfast.Mains
+﻿namespace KitchenAmericanBreakfast.Mains
 {
     class MapleSyrupCard : CustomDish
     {

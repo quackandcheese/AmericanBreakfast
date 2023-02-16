@@ -1,17 +1,4 @@
-﻿using IngredientLib.Util;
-using Kitchen;
-using KitchenAmericanBreakfast.Utils;
-using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-
+﻿
 namespace KitchenAmericanBreakfast.Mains
 {
     class WaffleIron : CustomAppliance
@@ -77,8 +64,8 @@ namespace KitchenAmericanBreakfast.Mains
             var iron = Prefab.GetChild("WaffleIron");
             var counter = iron.GetChild("Base_L_Counter.blend");
 
-            iron.ApplyMaterialToChild("Bottom", "Burned", "Metal Black", "AppleBurnt");
-            iron.ApplyMaterialToChild("Top", "Burned", "Metal Black", "AppleBurnt");
+            iron.ApplyMaterialToChild("Bottom", "Burned", "AppleBurnt", "Metal Black");
+            iron.ApplyMaterialToChild("Top", "Burned", "AppleBurnt", "Metal Black");
             iron.ApplyMaterialToChild("Hinge", "Metal Black");
 
             // Counter

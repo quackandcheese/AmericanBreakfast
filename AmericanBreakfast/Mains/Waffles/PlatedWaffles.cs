@@ -1,18 +1,4 @@
-﻿using Kitchen;
-using KitchenData;
-using KitchenLib.Colorblind;
-using KitchenLib.Customs;
-using KitchenLib.References;
-using KitchenLib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using static KitchenData.ItemGroup;
-using KitchenAmericanBreakfast.Utils;
-using IngredientLib.Util;
+﻿
 
 namespace KitchenAmericanBreakfast.Mains
 {

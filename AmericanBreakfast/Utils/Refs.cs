@@ -1,15 +1,5 @@
-﻿using IngredientLib.Ingredient.Providers;
-using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.References;
-using KitchenLib.Utils;
-using IngredientLib.Util;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using KitchenAmericanBreakfast.Mains;
+﻿
+using KitchenAmericanBreakfast.Sides;
 
 namespace KitchenAmericanBreakfast
 {
@@ -54,6 +44,9 @@ namespace KitchenAmericanBreakfast
 
         public static Item Waffle => Find<Item, Waffle>();
         public static ItemGroup PlatedWaffles => Find<ItemGroup, PlatedWaffles>();
+
+        public static Item OrangeJuice => Find<Item, OrangeJuice>();
+        public static Item OrangeJuiceGlass => Find<Item, OrangeJuiceGlass>();
         // Cards
         public static Dish AmericanBreakfastDish => Find<Dish, AmericanBreakfastDish>();
         public static Dish MapleSyrupCard => Find<Dish, MapleSyrupCard>();
@@ -62,8 +55,12 @@ namespace KitchenAmericanBreakfast
 
         public static Dish WafflesChickenCard => Find<Dish, WafflesChickenCard>();
 
+        public static Dish OrangeJuiceCard => Find<Dish, OrangeJuiceCard>();
+
         // Appliances
         public static Appliance WaffleIron => Find<Appliance, WaffleIron>();
+
+        public static Appliance OrangeJuiceProvider => Find<Appliance, OrangeJuiceProvider>();
 
         //Processes
         public static Process CookWaffle => Find<Process, CookWaffle>();
