@@ -84,6 +84,11 @@ namespace KitchenAmericanBreakfast.Mains
 
             Prefab.GetChild("Syrup").ApplyMaterialToChild("Plane.002", "Cooked Batter");
 
+            // Scrambies
+            /*var scrambies = Prefab.GetChild("ScrambledEggs");
+            scrambies.GetChildFromPath("Plate.002/Plate.003/Cylinder.001").ApplyMaterial("Plate", "Plate - Ring");
+            scrambies.ApplyMaterialToChild("Scrambled Eggs.001", "Egg - Yolk", "Plastic - Orange");*/
+
 
             Prefab.GetComponent<AmericanBreakfastItemGroupView>()?.Setup(Prefab);
         }

@@ -9,6 +9,8 @@ namespace KitchenAmericanBreakfast
         // Items
         public static Item Plate => Find<Item>(ItemReferences.Plate);
         public static Item DirtyPlate => Find<Item>(ItemReferences.PlateDirty);
+        public static Item Wok => Find<Item>(ItemReferences.Wok);
+        public static Item BurnedWok => Find<Item>(ItemReferences.WokBurned);
         public static Item Flour => Find<Item>(ItemReferences.Flour);
         public static Item Egg => Find<Item>(ItemReferences.Egg);
         public static Item CrackedEgg => Find<Item>(ItemReferences.EggCracked);
@@ -33,6 +35,8 @@ namespace KitchenAmericanBreakfast
         public static Item ButterSlice => Find<Item>(IngredientLib.References.GetSplitIngredient("butter"));
         public static Item CookedDrumstick => Find<Item>(IngredientLib.References.GetIngredient("cooked drumstick"));
         public static Item Drumstick => Find<Item>(IngredientLib.References.GetIngredient("drumstick"));
+        public static Item Milk => Find<Item>(IngredientLib.References.GetIngredient("milk"));
+        public static Item SplitMilk => Find<Item>(IngredientLib.References.GetSplitIngredient("milk"));
         #endregion
 
         #region Modded References
@@ -47,8 +51,14 @@ namespace KitchenAmericanBreakfast
 
         public static Item OrangeJuice => Find<Item, OrangeJuice>();
         public static Item OrangeJuiceGlass => Find<Item, OrangeJuiceGlass>();
+
+        public static Item MixedEgg => Find<Item, MixedEgg>();
+        public static Item ScrambledEgg => Find<Item, ScrambledEgg>();
+        public static Item ScrambledEggWokUncooked => Find<Item, ScrambledEggWokUncooked>();
+        public static Item ScrambledEggWokCooked => Find<Item, ScrambledEggWokCooked>();
         // Cards
         public static Dish AmericanBreakfastDish => Find<Dish, AmericanBreakfastDish>();
+        public static Dish WafflesDish => Find<Dish, WafflesDish>();
         public static Dish MapleSyrupCard => Find<Dish, MapleSyrupCard>();
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
         public static Dish ButterCard => Find<Dish, ButterCard>();

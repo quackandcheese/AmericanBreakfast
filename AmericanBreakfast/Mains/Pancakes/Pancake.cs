@@ -22,7 +22,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Item.ItemProcess
             {
-                Duration = 5,
+                Duration = 5.5f,
                 Process = Refs.Cook,
                 IsBad = true,
                 Result = Refs.Burnt

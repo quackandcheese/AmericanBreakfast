@@ -26,6 +26,8 @@ global using IngredientLib.Util;
 global using static KitchenData.ItemGroup;
 global using static KitchenLib.Utils.GDOUtils;
 global using static KitchenLib.Utils.KitchenPropertiesUtils;
+using TMPro;
+using Object = UnityEngine.Object;
 
 
 
@@ -39,7 +41,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.1.3";
+        public const string MOD_VERSION = "0.1.6";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -95,6 +97,13 @@ namespace KitchenAmericanBreakfast
 
             AddGameDataObject<OrangeJuiceCard>();
 
+            // Scrambled Eggs
+            AddGameDataObject<MixedEgg>();
+            AddGameDataObject<ScrambledEgg>();
+            AddGameDataObject<ScrambledEggWokUncooked>();
+            AddGameDataObject<ScrambledEggWokCooked>();
+            AddGameDataObject<ScrambledEggsCard>();
+
             LogInfo("Done loading game data.");
         }
 
@@ -104,12 +113,17 @@ namespace KitchenAmericanBreakfast
 
         protected override void OnPostActivate(KitchenMods.Mod mod)
         {
-            // TODO: Uncomment the following if you have an asset bundle.
-            // TODO: Also, make sure to set EnableAssetBundleDeploy to 'true' in your ModName.csproj
-
             LogInfo("Attempting to load asset bundle...");
             Bundle = mod.GetPacks<AssetBundleModPack>().SelectMany(e => e.AssetBundles).First();
+
+            Bundle.LoadAllAssets<Texture2D>();
+            Bundle.LoadAllAssets<Sprite>();
+            var spriteAsset = Bundle.LoadAsset<TMP_SpriteAsset>("CookWaffle");
+            TMP_Settings.defaultSpriteAsset.fallbackSpriteAssets.Add(spriteAsset);
+            spriteAsset.material = Object.Instantiate(TMP_Settings.defaultSpriteAsset.material);
+            spriteAsset.material.mainTexture = Bundle.LoadAsset<Texture2D>("CookWaffleTex");
             LogInfo("Done loading asset bundle.");
+
 
             // Register custom GDOs
             AddGameData();

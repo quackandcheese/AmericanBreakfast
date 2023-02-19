@@ -6,7 +6,7 @@
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("OrangeJuiceGlass");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
-        public override ItemValue ItemValue => ItemValue.SideMedium;
+        public override ItemValue ItemValue => ItemValue.SideSmall;
         public override bool IsMergeableSide => true;
         public override GameObject SidePrefab => Mod.Bundle.LoadAsset<GameObject>("OrangeJuiceGlassSide");
 

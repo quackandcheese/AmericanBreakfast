@@ -19,8 +19,7 @@
             {
                 var info = new LocalisationObject<ProcessInfo>();
 
-                // Note: for testing, I recommend setting "my_custom_icon" to "knead" for now until we add the custom icon
-                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Proof", "<sprite name=\"blend\">"));
+                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Proof", "<sprite name=\"cookwaffle\">"));
 
                 return info;
             }

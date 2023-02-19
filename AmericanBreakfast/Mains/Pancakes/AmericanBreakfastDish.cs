@@ -20,12 +20,17 @@
             "Not Awful Waffles",
             "Waffle This Way",
             "Flippin' Tasty",
-            "Slapjack Stackers",
-            "Not Awful Waffles",
-            "Waffle This Way",
-            "Flippin' Tasty",
-            "Slapjack Stackers",
-            "Flapjack Fantasy"
+            "Flapjack Fantasy",
+            "Batter Up",
+            "Scrambled Shenanigans",
+            "Flapjack Factory",
+            "Eggcellent Eats",
+            "The Pancake Pitstop",
+            "Waffle Wagon",
+            "Pancake Party",
+            "Waffle Workshop",
+            "Pancake Paradise",
+            "Pancake Palace"
         };
 
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
@@ -52,7 +57,7 @@
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Combine flour, egg, and sugar. Cook, plate, and serve. Customers can order up to 3 pancakes in a stack." }
+            { Locale.English, "Combine flour, egg, sugar, and mix together. Cook, plate, and serve. Customers can order up to 2 pancakes in a stack." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

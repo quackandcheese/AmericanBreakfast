@@ -14,9 +14,9 @@ using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class WafflesChickenCard : CustomDish
+    class TripleStackCard : CustomDish
     {
-        public override string UniqueNameID => "WafflesChickenCard";
+        public override string UniqueNameID => "TripleStackCard";
         public override DishType Type => DishType.Extra;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
@@ -28,34 +28,35 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override List<Unlock> HardcodedRequirements => new()
         {
-            Refs.WafflesDish
+            Refs.AmericanBreakfastDish
         };
 
         public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
         {
             new Dish.IngredientUnlock
             {
-                Ingredient = Refs.CookedDrumstick,
-                MenuItem = Refs.PlatedWaffles
+                Ingredient = Refs.Pancake,
+                MenuItem = Refs.PlatedPancakes
             }
         };
 
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.Drumstick
+            Refs.Pork
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
-            Refs.Cook
+            Refs.Cook,
+            Refs.Chop
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Cook and add to plated waffle. Do not remove the bone." }
+            { Locale.English, "Combine flour, egg, sugar, and mix together. Cook, plate, and serve. Customers can now order up to 3 pancakes in a stack."}
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Chicken & Waffles", "Adds chicken as a waffle topping", "A southern classic") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Triple Stack", "Adds a third pancake on top of the stack for customers to order", "The more the merrier") )
         };
     }
 }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Sides
 {
-    class OrangeJuiceCard : CustomDish
+    class ScrambledEggsCard : CustomDish
     {
-        public override string UniqueNameID => "OrangeJuiceCard";
+        public override string UniqueNameID => "ScrambledEggsCard";
         public override DishType Type => DishType.Side;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
@@ -18,23 +18,25 @@ namespace KitchenAmericanBreakfast.Sides
         {
             new Dish.MenuItem
             {
-                Item = Refs.OrangeJuiceGlass,
+                Item = Refs.ScrambledEgg,
                 Phase = MenuPhase.Side,
                 Weight = 1
             }
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.OrangeJuice
+            Refs.Wok,
+            Refs.Egg,
+            Refs.Milk
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Portion a glass of orange juice, then serve on plate with main" }
+            { Locale.English, "Crack an egg, and combine with a portion of milk. Cook in wok, portion, and serve with plated main." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Orange Juice", "Adds orange juice as a side", "Pulp-free") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Scrambled Eggs", "Adds scrambled eggs as a side", "Eggalicious") )
         };
     }
 }
