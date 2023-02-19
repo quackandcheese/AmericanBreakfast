@@ -1,18 +1,4 @@
-﻿using Kitchen;
-using KitchenData;
-using KitchenLib.Colorblind;
-using KitchenLib.Customs;
-using KitchenLib.References;
-using KitchenLib.Utils;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
-using static KitchenData.ItemGroup;
-using KitchenAmericanBreakfast.Utils;
-using IngredientLib.Util;
+﻿
 
 namespace KitchenAmericanBreakfast.Mains
 {
@@ -58,12 +44,14 @@ namespace KitchenAmericanBreakfast.Mains
                 RequiresUnlock = true,
                 Items = new List<Item>()
                 {
+                    //Refs.Pancake,
                     Refs.Syrup,
                     Refs.Bacon,
                     Refs.ButterSlice
                 }
             }
         };
+
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
@@ -91,6 +79,12 @@ namespace KitchenAmericanBreakfast.Mains
 
 
             Prefab.GetComponent<AmericanBreakfastItemGroupView>()?.Setup(Prefab);
+
+            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
+            {
+                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
+                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
+            }
         }
     }
 
@@ -152,6 +146,40 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "drumstick"),
                     Item = Refs.CookedDrumstick
+                }
+            };
+
+            ComponentLabels = new()
+            {
+                new ()
+                {
+                    Text = "P",
+                    Item = Refs.Pancake
+                },
+                new ()
+                {
+                    Text = "W",
+                    Item = Refs.Waffle
+                },
+                new ()
+                {
+                    Text = "S",
+                    Item = Refs.Syrup
+                },
+                new ()
+                {
+                    Text = "Bu",
+                    Item = Refs.ButterSlice
+                },
+                new ()
+                {
+                    Text = "Chi",
+                    Item = Refs.CookedDrumstick
+                },
+                new ()
+                {
+                    Text = "Ba",
+                    Item = Refs.Bacon
                 }
             };
         }

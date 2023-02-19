@@ -17,7 +17,7 @@ namespace KitchenAmericanBreakfast.Mains
     class TripleStackCard : CustomDish
     {
         public override string UniqueNameID => "TripleStackCard";
-        public override DishType Type => DishType.Extra;
+        public override DishType Type => DishType.Main;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
@@ -31,28 +31,41 @@ namespace KitchenAmericanBreakfast.Mains
             Refs.AmericanBreakfastDish
         };
 
-        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
+        /*public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
         {
             new Dish.IngredientUnlock
             {
                 Ingredient = Refs.Pancake,
                 MenuItem = Refs.PlatedPancakes
             }
+        };*/
+
+        public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
+        {
+            new Dish.MenuItem
+            {
+                Item = Refs.TriplePlatedPancakes,
+                Phase = MenuPhase.Main,
+                Weight = 1
+            }
         };
 
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.Pork
+            Refs.Flour,
+            Refs.Sugar,
+            Refs.Egg,
+            Refs.Plate
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
             Refs.Cook,
-            Refs.Chop
+            Refs.Knead
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Combine flour, egg, sugar, and mix together. Cook, plate, and serve. Customers can now order up to 3 pancakes in a stack."}
+            { Locale.English, "Combine flour, egg, sugar, and mix together. Portion, cook, plate, and serve. Customers can now order up to 3 pancakes in a stack."}
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

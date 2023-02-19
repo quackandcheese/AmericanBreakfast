@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Sides
 {
-    class MixedEgg : CustomItemGroup<ScrambledEggWokItemGroupView>
+    class MixedEgg : CustomItemGroup<MixedEggItemGroupView>
     {
         public override string UniqueNameID => "MixedEgg";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("MixedEgg");

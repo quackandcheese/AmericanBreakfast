@@ -1,6 +1,7 @@
 ﻿using Kitchen;
 using KitchenAmericanBreakfast.Utils;
 using KitchenData;
+using KitchenLib.Colorblind;
 using KitchenLib.Customs;
 using KitchenLib.Utils;
 using System;
@@ -18,7 +19,6 @@ namespace KitchenAmericanBreakfast.Mains
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("UnmixedBatter");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
-        public override string ColourBlindTag => "Ba";
 
         public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
         {
@@ -69,11 +69,17 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Egg", "Egg - White", "Egg - Yolk");
 
             Prefab.GetComponent<UnmixedBatterItemGroupView>()?.Setup(Prefab);
+            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
+            {
+                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
+                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
+            }
         }
     }
     public class UnmixedBatterItemGroupView : ItemGroupView
     {
-        internal void Setup(GameObject prefab) =>
+        internal void Setup(GameObject prefab)
+        {
             // This tells which sub-object of the prefab corresponds to each component of the ItemGroup
             // All of these sub-objects are hidden unless the item is present
             ComponentGroups = new()
@@ -92,7 +98,26 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Sugar"),
                     Item = Refs.Sugar
+                },
+            };
+            ComponentLabels = new()
+            {
+                new ()
+                {
+                    Text = "F",
+                    Item = Refs.Flour
+                },
+                new ()
+                {
+                    Text = "S",
+                    Item = Refs.Sugar
+                },
+                new ()
+                {
+                    Text = "E",
+                    Item = Refs.CrackedEgg
                 }
             };
+        }
     }
 }

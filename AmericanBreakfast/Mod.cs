@@ -10,6 +10,7 @@ global using KitchenMods;
 global using KitchenData;
 global using KitchenLib.Customs;
 global using KitchenLib.Utils;
+global using KitchenLib.Colorblind;
 
 global using UnityEngine;
 
@@ -72,6 +73,7 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<AmericanBreakfastDish>();
 
             AddGameDataObject<Batter>();
+            AddGameDataObject<BatterPortion>();
             AddGameDataObject<Pancake>();
             AddGameDataObject<PlatedPancakes>();
             AddGameDataObject<UnmixedBatter>();

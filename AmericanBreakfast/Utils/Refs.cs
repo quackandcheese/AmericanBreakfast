@@ -43,8 +43,10 @@ namespace KitchenAmericanBreakfast
         // Items
         public static Item Pancake => Find<Item, Pancake>();
         public static ItemGroup PlatedPancakes => Find<ItemGroup, PlatedPancakes>();
+        public static ItemGroup TriplePlatedPancakes => Find<ItemGroup, TriplePlatedPancakes>();
         public static ItemGroup UnmixedBatter => Find<ItemGroup, UnmixedBatter>();
         public static Item Batter => Find<Item, Batter>();
+        public static Item BatterPortion => Find<Item, BatterPortion>();
 
         public static Item Waffle => Find<Item, Waffle>();
         public static ItemGroup PlatedWaffles => Find<ItemGroup, PlatedWaffles>();
@@ -58,6 +60,7 @@ namespace KitchenAmericanBreakfast
         public static Item ScrambledEggWokCooked => Find<Item, ScrambledEggWokCooked>();
         // Cards
         public static Dish AmericanBreakfastDish => Find<Dish, AmericanBreakfastDish>();
+        public static Dish TripleStackCard => Find<Dish, TripleStackCard>();
         public static Dish WafflesDish => Find<Dish, WafflesDish>();
         public static Dish MapleSyrupCard => Find<Dish, MapleSyrupCard>();
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
