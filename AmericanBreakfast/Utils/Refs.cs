@@ -16,6 +16,8 @@ namespace KitchenAmericanBreakfast
         public static Item CrackedEgg => Find<Item>(ItemReferences.EggCracked);
         public static Item Sugar => Find<Item>(ItemReferences.Sugar);
         public static Item Burnt => Find<Item>(ItemReferences.BurnedFood);
+        public static Item Potato => Find<Item>(ItemReferences.Potato);
+        public static Item ChoppedPotato => Find<Item>(ItemReferences.PotatoChopped);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -58,6 +60,10 @@ namespace KitchenAmericanBreakfast
         public static Item ScrambledEgg => Find<Item, ScrambledEgg>();
         public static Item ScrambledEggWokUncooked => Find<Item, ScrambledEggWokUncooked>();
         public static Item ScrambledEggWokCooked => Find<Item, ScrambledEggWokCooked>();
+
+        public static Item HashBrowns => Find<Item, HashBrowns>();
+        public static Item HashBrownsWokUncooked => Find<Item, HashBrownsWokUncooked>();
+        public static Item HashBrownsWokCooked => Find<Item, HashBrownsWokCooked>();
         // Cards
         public static Dish AmericanBreakfastDish => Find<Dish, AmericanBreakfastDish>();
         public static Dish TripleStackCard => Find<Dish, TripleStackCard>();
@@ -72,6 +78,7 @@ namespace KitchenAmericanBreakfast
 
         // Appliances
         public static Appliance WaffleIron => Find<Appliance, WaffleIron>();
+        public static Appliance WafflePress => Find<Appliance, WafflePress>();
 
         public static Appliance OrangeJuiceProvider => Find<Appliance, OrangeJuiceProvider>();
 

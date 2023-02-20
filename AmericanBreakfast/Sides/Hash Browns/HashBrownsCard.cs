@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Sides
 {
-    class ScrambledEggsCard : CustomDish
+    class HashBrownsCard : CustomDish
     {
-        public override string UniqueNameID => "ScrambledEggsCard";
+        public override string UniqueNameID => "HashBrownsCard";
         public override DishType Type => DishType.Side;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
@@ -18,7 +18,7 @@ namespace KitchenAmericanBreakfast.Sides
         {
             new Dish.MenuItem
             {
-                Item = Refs.ScrambledEgg,
+                Item = Refs.HashBrowns,
                 Phase = MenuPhase.Side,
                 Weight = 1
             }
@@ -26,8 +26,7 @@ namespace KitchenAmericanBreakfast.Sides
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Wok,
-            Refs.Egg,
-            Refs.Milk
+            Refs.Potato
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
@@ -38,11 +37,11 @@ namespace KitchenAmericanBreakfast.Sides
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Crack an egg, and combine with a portion of milk. Cook in wok, portion, and serve with plated main." }
+            { Locale.English, "Chop a potato. Cook in wok, portion, and serve with plated main." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Scrambled Eggs", "Adds scrambled eggs as a side", "Eggalicious") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Hash Browns", "Adds hash browns as a side", null) )
         };
     }
 }

@@ -1,27 +1,35 @@
 ﻿
 namespace KitchenAmericanBreakfast.Mains
 {
-    class WaffleIron : CustomAppliance
+    class WafflePress : CustomAppliance
     {
-        public override string UniqueNameID => "WaffleIron";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("WaffleIron");
-        public override PriceTier PriceTier => PriceTier.Medium;
+        public override string UniqueNameID => "WafflePress";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("WafflePress");
+        public override PriceTier PriceTier => PriceTier.Expensive;
+        public override RarityTier RarityTier => RarityTier.Rare;
         public override bool SellOnlyAsDuplicate => true;
-        public override bool IsPurchasable => true;
+        public override bool IsPurchasable => false;
+        public override bool IsPurchasableAsUpgrade => true;
         public override ShoppingTags ShoppingTags => ShoppingTags.Cooking | ShoppingTags.Misc;
-        public override List<Appliance> Upgrades => new()
-        {
-            Refs.WafflePress
-        };
-
         public override List<(Locale, ApplianceInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateApplianceInfo("Waffle Iron", "Specialized tool that makes waffles what they are", new(), new()) )
+            ( Locale.English, LocalisationUtils.CreateApplianceInfo("Waffle Press", "A repurposed hydraulic press", new(), new() { "<sprite name=\"upgrade\" color=#A8FF1E> Automatic", "0.75x <sprite name=\"cookwaffle\">" }) )
         };
 
         public override List<IApplianceProperty> Properties => new()
         {
-            new CItemHolder(),
+            new CItemHolder()/*,
+            new CTakesDuration()
+            {
+                Total = 2,
+                Mode = InteractionMode.Items,
+
+            },
+            new CApplyProcessAfterDuration() { BreakOnFailure = false },
+            new CSetEnabledAfterDuration() { Activate = false },
+            new CLockedWhileDuration(),
+            new CDeactivateAtNight(),
+            new CSetEnabledAfterDuration(),
             new CRestrictProgressVisibility()
             {
                 HideWhenActive = false,
@@ -30,13 +38,11 @@ namespace KitchenAmericanBreakfast.Mains
                 ObfuscateWhenInactive = false
             },
             new CIsInactive(),
-            new CRequiresActivation(),
             new CItemTransferRestrictions()
             {
                 AllowWhenActive = false,
                 AllowWhenInactive = true
-            }
-            
+            }*/
         };
 
 
@@ -46,7 +52,7 @@ namespace KitchenAmericanBreakfast.Mains
             new Appliance.ApplianceProcesses()
             {
                 Process = Refs.CookWaffle,                               // reference to the base process
-                Speed = 1f,                                              // the speed multiplier when using this appliance (for reference, starter = 0.75, base = 1, danger hob/oven = 2)
+                Speed = 0.75f,                                              // the speed multiplier when using this appliance (for reference, starter = 0.75, base = 1, danger hob/oven = 2)
                 IsAutomatic = true                                       // (optional) whether the process is automatic on this appliance
             }
             // ...
@@ -69,9 +75,9 @@ namespace KitchenAmericanBreakfast.Mains
             var iron = Prefab.GetChild("WaffleIron");
             var counter = iron.GetChild("Base_L_Counter.blend");
 
-            iron.ApplyMaterialToChild("Bottom", "Burned", "AppleBurnt", "Metal Black");
-            iron.ApplyMaterialToChild("Top", "Burned", "AppleBurnt", "Metal Black");
-            iron.ApplyMaterialToChild("Hinge", "Metal Black");
+            iron.ApplyMaterialToChild("Frame", "AppleBurnt", "Metal Black");
+            iron.ApplyMaterialToChild("Piston", "Metal Black", "AppleBurnt", "Burned");
+            iron.ApplyMaterialToChild("Tray", "Burned", "AppleBurnt", "Metal Black");
 
             // Counter
             iron.ApplyMaterialToChild("Top_L_Counter.blend", "Wood - Default");

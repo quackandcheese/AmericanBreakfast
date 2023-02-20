@@ -42,7 +42,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.1.6";
+        public const string MOD_VERSION = "0.1.8";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -88,6 +88,7 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<PlatedWaffles>();
             AddGameDataObject<Waffle>();
             AddGameDataObject<WaffleIron>();
+            AddGameDataObject<WafflePress>();
             AddGameDataObject<CookWaffle>();
 
             AddGameDataObject<WafflesChickenCard>();
@@ -105,6 +106,12 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<ScrambledEggWokUncooked>();
             AddGameDataObject<ScrambledEggWokCooked>();
             AddGameDataObject<ScrambledEggsCard>();
+
+            // Hash Browns
+            AddGameDataObject<HashBrowns>();
+            AddGameDataObject<HashBrownsWokUncooked>();
+            AddGameDataObject<HashBrownsWokCooked>();
+            AddGameDataObject<HashBrownsCard>();
 
             LogInfo("Done loading game data.");
         }
