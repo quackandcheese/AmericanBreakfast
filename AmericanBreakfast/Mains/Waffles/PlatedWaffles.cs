@@ -7,7 +7,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override string UniqueNameID => "PlatedWaffles";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfast");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
-        public override ItemStorage ItemStorageFlags => ItemStorage.Small;
+        public override ItemStorage ItemStorageFlags => ItemStorage.None;
         public override ItemValue ItemValue => ItemValue.Medium;
         public override Item DisposesTo => Refs.Plate;
         public override Item DirtiesTo => Refs.DirtyPlate;
@@ -37,12 +37,12 @@ namespace KitchenAmericanBreakfast.Mains
             },
             new ItemSet()
             {
-                Max = 3,
+                Max = 2,
                 Min = 0,
                 RequiresUnlock = true,
                 Items = new List<Item>()
                 {
-                    Refs.Syrup,
+                    //Refs.Syrup,
                     Refs.CookedDrumstick,
                     Refs.ButterSlice
                 }

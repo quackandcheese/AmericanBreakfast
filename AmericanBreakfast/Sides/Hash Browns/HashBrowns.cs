@@ -15,7 +15,16 @@ namespace KitchenAmericanBreakfast.Sides
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemValue ItemValue => ItemValue.SideMedium;
         public override bool IsMergeableSide => true;
-        
+        public override List<Item.ItemProcess> Processes => new List<Item.ItemProcess>
+        {
+            new Item.ItemProcess
+            {
+                Duration = 8,
+                Process = Refs.CookWaffle,
+                IsBad = true,
+                Result = Refs.Burnt
+            }
+        };
 
         public override void OnRegister(GameDataObject gameDataObject)
         {

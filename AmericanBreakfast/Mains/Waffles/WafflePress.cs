@@ -18,7 +18,8 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override List<IApplianceProperty> Properties => new()
         {
-            new CItemHolder()/*,
+            new CItemHolder(),
+            new CNoBadProcesses()/*,
             new CTakesDuration()
             {
                 Total = 2,

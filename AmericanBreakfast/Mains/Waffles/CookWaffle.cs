@@ -19,7 +19,7 @@
             {
                 var info = new LocalisationObject<ProcessInfo>();
 
-                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Proof", "<sprite name=\"cookwaffle\">"));
+                info.Add(Locale.English, LocalisationUtils.CreateProcessInfo("Waffle Cook", "<sprite name=\"cookwaffle\">"));
 
                 return info;
             }

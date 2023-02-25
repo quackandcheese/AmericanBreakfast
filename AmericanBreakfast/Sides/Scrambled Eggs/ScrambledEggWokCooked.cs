@@ -6,6 +6,20 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Sides
 {
+    public class ScrambledEggWokCookedItemView : ObjectsSplittableView
+    {
+        internal void Setup(GameObject prefab)
+        {
+            var fObjects = ReflectionUtils.GetField<ObjectsSplittableView>("Objects");
+            fObjects.SetValue(this, new List<GameObject>()
+            { 
+                prefab.GetChild("Slice1"),
+                prefab.GetChild("Slice2"),
+                prefab.GetChild("Slice3")
+            });
+        }
+    }
+
     class ScrambledEggWokCooked : CustomItem
     {
         public override string UniqueNameID => "ScrambledEggWokCooked";
@@ -14,7 +28,7 @@ namespace KitchenAmericanBreakfast.Sides
         public override ItemStorage ItemStorageFlags => ItemStorage.Small;
         public override Item DisposesTo => Refs.Wok;
         public override Item SplitSubItem => Refs.ScrambledEgg;
-        public override int SplitCount => 1;
+        public override int SplitCount => 3;
         public override float SplitSpeed => 1.0f;
         public override List<Item> SplitDepletedItems => new() { Refs.Wok };
 
@@ -37,7 +51,15 @@ namespace KitchenAmericanBreakfast.Sides
             wok.ApplyMaterialToChild("Cylinder", "Metal Black");
             wok.ApplyMaterialToChild("Cylinder.003", "Wood 5 - Grey");
 
-            Prefab.ApplyMaterialToChild("Scrambled Eggs.002", "Egg - Yolk", "Cooked Pastry");
+            Prefab.ApplyMaterialToChild("Slice1", "Egg - Yolk", "Cooked Pastry");
+            Prefab.ApplyMaterialToChild("Slice2", "Egg - Yolk", "Cooked Pastry");
+            Prefab.ApplyMaterialToChild("Slice3", "Egg - Yolk", "Cooked Pastry");
+
+            if (!Prefab.HasComponent<ScrambledEggWokCookedItemView>())
+            {
+                var view = Prefab.AddComponent<ScrambledEggWokCookedItemView>();
+                view.Setup(Prefab);
+            }
         }
     }
 }

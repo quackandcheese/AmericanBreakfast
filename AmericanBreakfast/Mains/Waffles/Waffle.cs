@@ -11,8 +11,8 @@
         {
             new Item.ItemProcess
             {
-                Duration = 5,
-                Process = Refs.Cook,
+                Duration = 12,
+                Process = Refs.CookWaffle,
                 IsBad = true,
                 Result = Refs.Burnt
             }

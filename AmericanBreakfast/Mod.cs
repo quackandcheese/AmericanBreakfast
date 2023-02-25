@@ -32,7 +32,7 @@ using Object = UnityEngine.Object;
 
 
 
-// Huge thanks to ZekNikZ, IcedMilo, DepletedSupernova, and many others for helping me make this mod along the way!
+// Huge thanks to ZekNikZ, IcedMilo, DepletedSupernova, and many others for helping me make this mod along the way!!
 namespace KitchenAmericanBreakfast
 {
     public class Mod : BaseMod, IModSystem
@@ -42,7 +42,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.1.8";
+        public const string MOD_VERSION = "0.2.0";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -71,10 +71,12 @@ namespace KitchenAmericanBreakfast
 
             // Pancakes
             AddGameDataObject<AmericanBreakfastDish>();
+            //AddGameDataObject<TripleStackCard>();
 
             AddGameDataObject<Batter>();
             AddGameDataObject<BatterPortion>();
             AddGameDataObject<Pancake>();
+            //AddGameDataObject<ThirdPancake>();
             AddGameDataObject<PlatedPancakes>();
             AddGameDataObject<UnmixedBatter>();
 
@@ -109,8 +111,8 @@ namespace KitchenAmericanBreakfast
 
             // Hash Browns
             AddGameDataObject<HashBrowns>();
-            AddGameDataObject<HashBrownsWokUncooked>();
-            AddGameDataObject<HashBrownsWokCooked>();
+            //AddGameDataObject<HashBrownsWokUncooked>();
+            //AddGameDataObject<HashBrownsWokCooked>();
             AddGameDataObject<HashBrownsCard>();
 
             LogInfo("Done loading game data.");
@@ -140,6 +142,12 @@ namespace KitchenAmericanBreakfast
             // Perform actions when game data is built
             Events.BuildGameDataEvent += delegate (object s, BuildGameDataEventArgs args)
             {
+                Refs.ChoppedPotato.DerivedProcesses.Add(new Item.ItemProcess()
+                {
+                    Process = Refs.CookWaffle,         // see above for descriptions of these fields
+                    Result = Refs.HashBrowns,
+                    Duration = 2f
+                });
             };
         }
         #region Logging

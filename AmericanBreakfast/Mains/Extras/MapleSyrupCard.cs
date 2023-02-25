@@ -17,16 +17,16 @@
             Refs.AmericanBreakfastDish
         };
 
-        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
+        public override HashSet<Dish.IngredientUnlock> ExtraOrderUnlocks => new HashSet<Dish.IngredientUnlock>
         {
             new Dish.IngredientUnlock
             {
-                Ingredient = Refs.Syrup,
+                Ingredient = Refs.SyrupBottle,
                 MenuItem = Refs.PlatedPancakes
             },
             new Dish.IngredientUnlock
             {
-                Ingredient = Refs.Syrup,
+                Ingredient = Refs.SyrupBottle,
                 MenuItem = Refs.PlatedWaffles
             }
         };
@@ -41,11 +41,14 @@
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Use with plated breakfast to add syrup, then serve." }
+            //{ Locale.English, "Use with plated breakfast to add syrup, then serve." }
+
+            { Locale.English, "Customers can request Maple Syrup while eating American breakfast" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Maple Syrup", "Adds maple syrup as an American Breakfast topping", "Simple yet delicious") )
+            //( Locale.English, LocalisationUtils.CreateUnlockInfo("Maple Syrup", "Adds maple syrup as an American Breakfast topping", "Simple yet delicious") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Maple Syrup", "Customers can request Maple Syrup while eating American breakfast", null) )
         };
     }
 }

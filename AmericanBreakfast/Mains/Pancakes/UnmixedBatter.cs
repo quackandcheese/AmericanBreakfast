@@ -18,19 +18,21 @@ namespace KitchenAmericanBreakfast.Mains
         public override string UniqueNameID => "UnmixedBatter";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("UnmixedBatter");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
-        public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
+        //public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
 
         public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
         {
             new ItemGroup.ItemSet()
             {
-                Max = 1,
-                Min = 1,
+                Max = 3,
+                Min = 3,
                 Items = new List<Item>()
                 {
-                    Refs.Flour
+                    Refs.Flour,
+                    Refs.Sugar,
+                    Refs.CrackedEgg
                 }
-            },
+            }/*,
             new ItemGroup.ItemSet()
             {
                 Max = 1,
@@ -48,7 +50,7 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     Refs.Sugar
                 }
-            }
+            }*/
         };
         public override List<Item.ItemProcess> Processes => new List<Item.ItemProcess>
         {

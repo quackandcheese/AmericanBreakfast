@@ -17,7 +17,7 @@ namespace KitchenAmericanBreakfast.Mains
     class TripleStackCard : CustomDish
     {
         public override string UniqueNameID => "TripleStackCard";
-        public override DishType Type => DishType.Main;
+        public override DishType Type => DishType.Extra;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
@@ -40,13 +40,12 @@ namespace KitchenAmericanBreakfast.Mains
             }
         };*/
 
-        public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
+        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
         {
-            new Dish.MenuItem
+            new Dish.IngredientUnlock
             {
-                Item = Refs.TriplePlatedPancakes,
-                Phase = MenuPhase.Main,
-                Weight = 1
+                Ingredient = Refs.ThirdPancake,
+                MenuItem = Refs.PlatedPancakes
             }
         };
 

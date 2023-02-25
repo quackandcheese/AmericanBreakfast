@@ -25,19 +25,20 @@ namespace KitchenAmericanBreakfast.Sides
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.Wok,
+            //Refs.Wok,
             Refs.Potato
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
-            Refs.Cook,
+            //Refs.Cook,
+            Refs.CookWaffle,
             Refs.Chop
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Chop a potato. Cook in wok, portion, and serve with plated main." }
+            { Locale.English, "Chop a potato. Cook in waffle iron, and serve with plated main." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
