@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KitchenAmericanBreakfast.Sides
+﻿namespace KitchenAmericanBreakfast.Sides
 {
     class MixedEgg : CustomItemGroup<MixedEggItemGroupView>
     {
@@ -37,13 +31,22 @@ namespace KitchenAmericanBreakfast.Sides
             }
         };
 
+        public override List<Item.ItemProcess> Processes => new List<Item.ItemProcess>
+        {
+            new Item.ItemProcess
+            {
+                Duration = 2f,
+                Process = Refs.Cook,
+                Result = Refs.CookedOmelette
+            }
+        };
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
             Prefab.ApplyMaterialToChild("Cylinder.002", "Metal Dark");
             Prefab.ApplyMaterialToChild("Plane", "Egg - Yolk");
 
-            Prefab.GetComponent<ScrambledEggWokItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<MixedEggItemGroupView>()?.Setup(Prefab);
         }
     }
 

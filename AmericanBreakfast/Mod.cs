@@ -95,6 +95,13 @@ namespace KitchenAmericanBreakfast
 
             AddGameDataObject<WafflesChickenCard>();
 
+            // Omelettes
+            AddGameDataObject<CookedOmelette>();
+            AddGameDataObject<CookedTomatoSpinachOmelette>();
+            AddGameDataObject<TomatoSpinachOmelette>();
+            AddGameDataObject<PlatedOmelette>();
+            AddGameDataObject<OmeletteDish>();
+
             // OJ
             AddGameDataObject<OrangeJuice>();
             AddGameDataObject<OrangeJuiceGlass>();
@@ -144,7 +151,7 @@ namespace KitchenAmericanBreakfast
             {
                 Refs.ChoppedPotato.DerivedProcesses.Add(new Item.ItemProcess()
                 {
-                    Process = Refs.CookWaffle,         // see above for descriptions of these fields
+                    Process = Refs.CookWaffle,         
                     Result = Refs.HashBrowns,
                     Duration = 2f
                 });

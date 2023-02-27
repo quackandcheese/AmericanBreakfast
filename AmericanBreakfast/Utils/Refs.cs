@@ -18,6 +18,10 @@ namespace KitchenAmericanBreakfast
         public static Item Burnt => Find<Item>(ItemReferences.BurnedFood);
         public static Item Potato => Find<Item>(ItemReferences.Potato);
         public static Item ChoppedPotato => Find<Item>(ItemReferences.PotatoChopped);
+        public static Item Tomato => Find<Item>(ItemReferences.Tomato);
+        public static Item ChoppedTomato => Find<Item>(ItemReferences.TomatoChopped);
+        public static Item Lettuce => Find<Item>(ItemReferences.Lettuce);
+        public static Item ChoppedLettuce => Find<Item>(ItemReferences.LettuceChopped);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -50,16 +54,25 @@ namespace KitchenAmericanBreakfast
         public static Item Batter => Find<Item, Batter>();
         public static Item BatterPortion => Find<Item, BatterPortion>();
 
+
         public static Item Waffle => Find<Item, Waffle>();
         public static ItemGroup PlatedWaffles => Find<ItemGroup, PlatedWaffles>();
 
+
+        public static Item CookedOmelette => Find<Item, CookedOmelette>();
+        public static Item TomatoSpinachOmelette => Find<Item, TomatoSpinachOmelette>();
+        public static ItemGroup PlatedOmelette => Find<ItemGroup, PlatedOmelette>();
+
+
         public static Item OrangeJuice => Find<Item, OrangeJuice>();
         public static Item OrangeJuiceGlass => Find<Item, OrangeJuiceGlass>();
+
 
         public static Item MixedEgg => Find<Item, MixedEgg>();
         public static Item ScrambledEgg => Find<Item, ScrambledEgg>();
         public static Item ScrambledEggWokUncooked => Find<Item, ScrambledEggWokUncooked>();
         public static Item ScrambledEggWokCooked => Find<Item, ScrambledEggWokCooked>();
+
 
         public static Item HashBrowns => Find<Item, HashBrowns>();
         public static Item HashBrownsWokUncooked => Find<Item, HashBrownsWokUncooked>();
