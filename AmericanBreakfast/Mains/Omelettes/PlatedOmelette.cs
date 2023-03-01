@@ -59,8 +59,9 @@ namespace KitchenAmericanBreakfast.Mains
             var tomatoes = omelette.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
             var plate = Prefab.GetChildFromPath("Plate/Plate");
 
-            //Visuals
-            omelette.ApplyMaterialToChild("Spinaches", "Cooked Broccoli", "Lettuce");
+
+            //Tomato Spinach
+            omelette.ApplyMaterialToChild("Spinaches", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
             tomatoes.ApplyMaterialToChild("Liquid", "Tomato Flesh");
             tomatoes.ApplyMaterialToChild("Liquid.001", "Tomato Flesh 2");
             tomatoes.ApplyMaterialToChild("Skin", "Tomato");
@@ -68,6 +69,26 @@ namespace KitchenAmericanBreakfast.Mains
             omelette.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
 
 
+            //Bacon Cheese
+            var bcOmelette = Prefab.GetChild("Bacon Cheese Omelette");
+            var baconCheese = bcOmelette.GetChildFromPath("Bacon Cheese");
+
+            baconCheese.ApplyMaterialToChild("Bacon Portion.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name); ;
+            baconCheese.ApplyMaterialToChild("Cheese", "Cheese - Default");
+
+            bcOmelette.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
+
+
+            //Mushroom Onion
+            var moOmelette = Prefab.GetChild("Mushroom Onion Omelette");
+            moOmelette.ApplyMaterialToChild("mushroomHalf.016", "Mushroom Dark", "Mushroom Light");
+
+            moOmelette.GetChildFromPath("Onions").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
+
+            moOmelette.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
+
+
+            //Plate
             plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
 
 
@@ -99,6 +120,16 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Tomato Spinach Omelette"),
                     Item = Refs.TomatoSpinachOmelette
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Bacon Cheese Omelette"),
+                    Item = Refs.BaconCheeseOmelette
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Mushroom Onion Omelette"),
+                    Item = Refs.MushroomOnionOmelette
                 }
             };
 
@@ -108,6 +139,16 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     Text = "ToSp",
                     Item = Refs.TomatoSpinachOmelette
+                },
+                new ()
+                {
+                    Text = "BaCh",
+                    Item = Refs.BaconCheeseOmelette
+                },
+                new ()
+                {
+                    Text = "MuO",
+                    Item = Refs.MushroomOnionOmelette
                 }
             };
         }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class CookedTomatoSpinachOmelette : CustomItemGroup<CookedTomatoSpinachOmeletteItemGroupView>
+    class CookedMushroomOnionOmelette : CustomItemGroup<CookedMushroomOnionOmeletteItemGroupView>
     {
-        public override string UniqueNameID => "Cooked Tomato Spinach Omelette";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Cooked Tomato Spinach Omelette");
+        public override string UniqueNameID => "Cooked Mushroom Onion Omelette";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Cooked Mushroom Onion Omelette");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
 
@@ -19,7 +19,7 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 Duration = 0.5f,
                 Process = Refs.Knead,
-                Result = Refs.TomatoSpinachOmelette
+                Result = Refs.MushroomOnionOmelette
             }
         };
 
@@ -41,25 +41,22 @@ namespace KitchenAmericanBreakfast.Mains
                 Min = 2,
                 Items = new List<Item>()
                 {
-                    Refs.ChoppedTomato,
-                    Refs.ChoppedSpinach
+                    Refs.ChoppedMushroom,
+                    Refs.ChoppedOnion
                 }
             }
         };
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var parent = Prefab.GetChild("Tomato Spinach.001");
-            var tomato = parent.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
+            Prefab.ApplyMaterialToChild("mushroomHalf.017", "Mushroom Dark", "Mushroom Light");
 
-            parent.ApplyMaterialToChild("Chopped Spinach.001/Spinaches.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
-            tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");
-            tomato.ApplyMaterialToChild("Liquid.001", "Tomato Flesh 2");
-            tomato.ApplyMaterialToChild("Skin", "Tomato");
+            Prefab.GetChildFromPath("Onion - Chopped.008/Onion - Chopped.009").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
 
             Prefab.ApplyMaterialToChild("Omelette.001", "Bread", "Egg - Yolk");
 
-            Prefab.GetComponent<CookedTomatoSpinachOmeletteItemGroupView>()?.Setup(Prefab);
+
+            Prefab.GetComponent<CookedMushroomOnionOmeletteItemGroupView>()?.Setup(Prefab);
 
             if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
             {
@@ -70,7 +67,7 @@ namespace KitchenAmericanBreakfast.Mains
     }
 
 
-    public class CookedTomatoSpinachOmeletteItemGroupView : ItemGroupView
+    public class CookedMushroomOnionOmeletteItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -80,28 +77,27 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Tomato Spinach.001/Tomato - Chopped"),
-                    Item = Refs.ChoppedTomato
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "mushroomHalf.017"),
+                    Item = Refs.ChoppedMushroom
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Tomato Spinach.001/Chopped Spinach.001"),
-                    Item = Refs.ChoppedSpinach
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Onion - Chopped.008"),
+                    Item = Refs.ChoppedOnion
                 }
             };
-
 
             ComponentLabels = new()
             {
                 new()
                 {
-                    Item = Refs.ChoppedTomato,
-                    Text = "To"
+                    Item = Refs.ChoppedMushroom,
+                    Text = "Mu"
                 },
                 new()
                 {
-                    Item = Refs.ChoppedSpinach,
-                    Text = "Sp"
+                    Item = Refs.ChoppedOnion,
+                    Text = "O"
                 }
             };
         }

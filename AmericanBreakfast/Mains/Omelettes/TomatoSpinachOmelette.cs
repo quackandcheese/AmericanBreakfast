@@ -18,7 +18,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             var tomato = Prefab.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
 
-            Prefab.ApplyMaterialToChild("Spinaches", "Cooked Broccoli", "Lettuce");
+            Prefab.ApplyMaterialToChild("Spinaches", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
             tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");
             tomato.ApplyMaterialToChild("Liquid.001", "Tomato Flesh 2");
             tomato.ApplyMaterialToChild("Skin", "Tomato");

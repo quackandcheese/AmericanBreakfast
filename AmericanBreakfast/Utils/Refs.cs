@@ -1,4 +1,5 @@
 ﻿
+using ApplianceLib.Api.References;
 using KitchenAmericanBreakfast.Sides;
 
 namespace KitchenAmericanBreakfast
@@ -22,6 +23,12 @@ namespace KitchenAmericanBreakfast
         public static Item ChoppedTomato => Find<Item>(ItemReferences.TomatoChopped);
         public static Item Lettuce => Find<Item>(ItemReferences.Lettuce);
         public static Item ChoppedLettuce => Find<Item>(ItemReferences.LettuceChopped);
+        public static Item Cheese => Find<Item>(ItemReferences.Cheese);
+        public static Item ChoppedCheese => Find<Item>(ItemReferences.CheeseGrated);
+        public static Item Mushroom => Find<Item>(ItemReferences.Mushroom);
+        public static Item ChoppedMushroom => Find<Item>(ItemReferences.MushroomChopped);
+        public static Item Onion => Find<Item>(ItemReferences.Onion);
+        public static Item ChoppedOnion => Find<Item>(ItemReferences.OnionChopped);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -43,6 +50,14 @@ namespace KitchenAmericanBreakfast
         public static Item Drumstick => Find<Item>(IngredientLib.References.GetIngredient("drumstick"));
         public static Item Milk => Find<Item>(IngredientLib.References.GetIngredient("milk"));
         public static Item SplitMilk => Find<Item>(IngredientLib.References.GetSplitIngredient("milk"));
+        public static Item Spinach => Find<Item>(IngredientLib.References.GetIngredient("spinach"));
+        public static Item ChoppedSpinach => Find<Item>(IngredientLib.References.GetIngredient("chopped spinach"));
+        #endregion
+
+        #region ApplianceLib References
+        public static Item Cup => Find<Item>(ApplianceLibGDOs.Refs.Cup.ID);
+
+        public static Appliance CupProvider => Find<Appliance>(ApplianceLibGDOs.Refs.CupProvider.ID);
         #endregion
 
         #region Modded References
@@ -53,6 +68,7 @@ namespace KitchenAmericanBreakfast
         public static ItemGroup UnmixedBatter => Find<ItemGroup, UnmixedBatter>();
         public static Item Batter => Find<Item, Batter>();
         public static Item BatterPortion => Find<Item, BatterPortion>();
+        public static Item BaconPortion => Find<Item, BaconPortion>();
 
 
         public static Item Waffle => Find<Item, Waffle>();
@@ -61,11 +77,16 @@ namespace KitchenAmericanBreakfast
 
         public static Item CookedOmelette => Find<Item, CookedOmelette>();
         public static Item TomatoSpinachOmelette => Find<Item, TomatoSpinachOmelette>();
+        public static Item BaconCheeseOmelette => Find<Item, BaconCheeseOmelette>();
+        public static Item MushroomOnionOmelette => Find<Item, MushroomOnionOmelette>();
         public static ItemGroup PlatedOmelette => Find<ItemGroup, PlatedOmelette>();
+        public static ItemGroup PlatedBaconCheeseOmelette => Find<ItemGroup, PlatedBaconCheeseOmelette>();
+        public static ItemGroup PlatedMushroomOnionOmelette => Find<ItemGroup, PlatedMushroomOnionOmelette>();
 
 
         public static Item OrangeJuice => Find<Item, OrangeJuice>();
-        public static Item OrangeJuiceGlass => Find<Item, OrangeJuiceGlass>();
+        public static ItemGroup OrangeJuiceGlass => Find<ItemGroup, OrangeJuiceGlass>();
+        public static Item OrangeJuiceIngredient => Find<Item, OrangeJuiceIngredient>();
 
 
         public static Item MixedEgg => Find<Item, MixedEgg>();
@@ -84,6 +105,7 @@ namespace KitchenAmericanBreakfast
         public static Dish MapleSyrupCard => Find<Dish, MapleSyrupCard>();
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
         public static Dish ButterCard => Find<Dish, ButterCard>();
+        public static Dish OmeletteDish => Find<Dish, OmeletteDish>();
 
         public static Dish WafflesChickenCard => Find<Dish, WafflesChickenCard>();
 

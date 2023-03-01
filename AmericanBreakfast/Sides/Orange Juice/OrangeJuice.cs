@@ -10,10 +10,12 @@ namespace KitchenAmericanBreakfast.Sides
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
         public override ItemValue ItemValue => ItemValue.SideSmall;
         public override bool IsIndisposable => true;
-        public override Item SplitSubItem => Refs.OrangeJuiceGlass;
+        public override Item SplitSubItem => Refs.OrangeJuiceIngredient;
+        //public override bool PreventExplicitSplit => true;
+        //public override bool AllowSplitMerging => true;
         public override Appliance DedicatedProvider => Refs.OrangeJuiceProvider;
         public override int SplitCount => 999;
-        public override float SplitSpeed => 3.0f;
+        public override float SplitSpeed => 0.495f;
 
 
         public override void OnRegister(GameDataObject gameDataObject)

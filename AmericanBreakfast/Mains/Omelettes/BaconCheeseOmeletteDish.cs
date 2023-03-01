@@ -1,62 +1,57 @@
-﻿using KitchenData;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
-using Unity.Entities;
-using KitchenAmericanBreakfast.Utils;
-using KitchenAmericanBreakfast;
-using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class PancakeBaconCard : CustomDish
+    class BaconCheeseOmeletteDish : CustomDish
     {
-        public override string UniqueNameID => "PancakeBaconCard";
-        public override DishType Type => DishType.Extra;
+        public override string UniqueNameID => "Bacon Cheese Omelette Dish";
+        public override DishType Type => DishType.Main;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
-        public override bool IsSpecificFranchiseTier => false;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
-
         public override List<Unlock> HardcodedRequirements => new()
         {
-            Refs.AmericanBreakfastDish
+            Refs.OmeletteDish
         };
 
-        public override HashSet<Dish.IngredientUnlock> IngredientsUnlocks => new HashSet<Dish.IngredientUnlock>
+        public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
         {
-            new Dish.IngredientUnlock
+            new Dish.MenuItem
             {
-                Ingredient = Refs.Bacon,
-                MenuItem = Refs.PlatedPancakes
+                Item = Refs.PlatedBaconCheeseOmelette,
+                Phase = MenuPhase.Main,
+                Weight = 1
             }
         };
 
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
+            Refs.Egg,
+            //Refs.Milk,
+            Refs.Cheese,
             Refs.Pork
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
-            Refs.Cook,
-            Refs.Chop
+            Refs.Knead,
+            Refs.Chop,
+            Refs.Cook
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Chop pork, and cook to make bacon. Portion, and add to plated pancakes." }
+            { Locale.English, "Crack an egg, mix, then cook. Chop and cook pork to make bacon. Add chopped cheese and portioned bacon as fillings and fold omelette" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Pancakes & Bacon", "Adds bacon as a pancake topping", "Smoked and served") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Bacon And Cheese Omelette", "Adds bacon and cheese omelettes as a main", null) )
         };
     }
 }

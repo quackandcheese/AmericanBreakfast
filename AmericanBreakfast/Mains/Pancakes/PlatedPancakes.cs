@@ -46,7 +46,7 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     //Refs.Pancake,
                     //Refs.Syrup,
-                    Refs.Bacon,
+                    Refs.BaconPortion,
                     Refs.ButterSlice
                 }
             }
@@ -66,7 +66,7 @@ namespace KitchenAmericanBreakfast.Mains
             pancake.GetChild("Middle Pancake").ApplyMaterialToChild("Butter - Slice.001", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Butter\""].name);
             pancake.GetChild("Bottom Pancake").ApplyMaterialToChild("Butter - Slice", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Butter\""].name);
 
-            Prefab.ApplyMaterialToChild("Bacon", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name);
+            Prefab.ApplyMaterialToChild("Bacon Portion", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name);
 
             plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
 
@@ -133,8 +133,8 @@ namespace KitchenAmericanBreakfast.Mains
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Bacon"),
-                    Item = Refs.Bacon
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Bacon Portion"),
+                    Item = Refs.BaconPortion
                 },
                 // Waffle
                 new()
@@ -179,7 +179,7 @@ namespace KitchenAmericanBreakfast.Mains
                 new ()
                 {
                     Text = "Ba",
-                    Item = Refs.Bacon
+                    Item = Refs.BaconPortion
                 }
             };
         }

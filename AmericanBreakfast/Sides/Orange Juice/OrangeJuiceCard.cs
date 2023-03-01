@@ -25,16 +25,17 @@ namespace KitchenAmericanBreakfast.Sides
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.OrangeJuice
+            Refs.OrangeJuice,
+            ApplianceLibGDOs.Refs.Cup
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Portion a glass of orange juice, then serve on plate with main" }
+            { Locale.English, "Grab a cup and portion orange juice from carton" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Orange Juice", "Adds orange juice as a side", "Pulp-free") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Orange Juice", "Adds orange juice as a side", "Pulpy") )
         };
     }
 }

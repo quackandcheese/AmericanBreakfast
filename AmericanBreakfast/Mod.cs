@@ -23,6 +23,7 @@ global using System.Reflection;
 
 
 global using IngredientLib.Util;
+global using ApplianceLib.Api.References;
 
 global using static KitchenData.ItemGroup;
 global using static KitchenLib.Utils.GDOUtils;
@@ -42,7 +43,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.0";
+        public const string MOD_VERSION = "0.2.1";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -79,6 +80,7 @@ namespace KitchenAmericanBreakfast
             //AddGameDataObject<ThirdPancake>();
             AddGameDataObject<PlatedPancakes>();
             AddGameDataObject<UnmixedBatter>();
+            AddGameDataObject<BaconPortion>();
 
             AddGameDataObject<MapleSyrupCard>();
             AddGameDataObject<PancakeBaconCard>();
@@ -97,13 +99,25 @@ namespace KitchenAmericanBreakfast
 
             // Omelettes
             AddGameDataObject<CookedOmelette>();
+
+            AddGameDataObject<OmeletteDish>();
+            AddGameDataObject<PlatedOmelette>();
             AddGameDataObject<CookedTomatoSpinachOmelette>();
             AddGameDataObject<TomatoSpinachOmelette>();
-            AddGameDataObject<PlatedOmelette>();
-            AddGameDataObject<OmeletteDish>();
+
+            AddGameDataObject<BaconCheeseOmeletteDish>();
+            AddGameDataObject<PlatedBaconCheeseOmelette>();
+            AddGameDataObject<CookedBaconCheeseOmelette>();
+            AddGameDataObject<BaconCheeseOmelette>();
+
+            AddGameDataObject<MushroomOnionOmeletteDish>();
+            AddGameDataObject<PlatedMushroomOnionOmelette>();
+            AddGameDataObject<CookedMushroomOnionOmelette>();
+            AddGameDataObject<MushroomOnionOmelette>();
 
             // OJ
             AddGameDataObject<OrangeJuice>();
+            AddGameDataObject<OrangeJuiceIngredient>();
             AddGameDataObject<OrangeJuiceGlass>();
             AddGameDataObject<OrangeJuiceProvider>();
 
@@ -155,6 +169,18 @@ namespace KitchenAmericanBreakfast
                     Result = Refs.HashBrowns,
                     Duration = 2f
                 });
+
+                Refs.CrackedEgg.DerivedProcesses.Add(new Item.ItemProcess()
+                {
+                    Process = Refs.Chop,
+                    Result = Refs.MixedEgg,
+                    Duration = 0.75f
+                });
+
+                Refs.Bacon.SplitDepletedItems.Add(Refs.BaconPortion);
+                Refs.Bacon.SplitSubItem = Refs.BaconPortion;
+                Refs.Bacon.SplitCount = 1;
+                Refs.Bacon.SplitSpeed = 2f;
             };
         }
         #region Logging

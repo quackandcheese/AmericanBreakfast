@@ -33,7 +33,15 @@ namespace KitchenAmericanBreakfast.Mains
             "The Eggstraordinary Kitchen",
             "Yolked Chefs",
             "The Crack of Dawn",
-            "Sunny Side Supper"
+            "Sunny Side Supper",
+            "Egg-cellent service",
+            "Overeasy going",
+            "Mad Scramble",
+            "Fry me to the moon",
+            "Hard-boiled service",
+            "No yolks about it",
+            "I love puns",
+            "Egg Pun"
         };
 
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
@@ -48,9 +56,9 @@ namespace KitchenAmericanBreakfast.Mains
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Egg,
-            Refs.Milk,
+            //Refs.Milk,
             Refs.Tomato,
-            Refs.Lettuce //Refs.Spinach
+            Refs.Spinach
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
@@ -61,7 +69,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Crack an egg, and combine with a portion of milk, then cook. Add chopped tomato and chopped spinach as fillings and fold omelette" }
+            { Locale.English, "Crack an egg, mix, then cook. Add chopped tomato and chopped spinach as fillings and fold omelette" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

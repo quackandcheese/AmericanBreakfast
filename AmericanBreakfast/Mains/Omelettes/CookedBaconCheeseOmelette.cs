@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class CookedTomatoSpinachOmelette : CustomItemGroup<CookedTomatoSpinachOmeletteItemGroupView>
+    class CookedBaconCheeseOmelette : CustomItemGroup<CookedBaconCheeseOmeletteItemGroupView>
     {
-        public override string UniqueNameID => "Cooked Tomato Spinach Omelette";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Cooked Tomato Spinach Omelette");
+        public override string UniqueNameID => "Cooked Bacon Cheese Omelette";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Cooked Bacon Cheese Omelette");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
 
@@ -19,7 +19,7 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 Duration = 0.5f,
                 Process = Refs.Knead,
-                Result = Refs.TomatoSpinachOmelette
+                Result = Refs.BaconCheeseOmelette
             }
         };
 
@@ -41,25 +41,22 @@ namespace KitchenAmericanBreakfast.Mains
                 Min = 2,
                 Items = new List<Item>()
                 {
-                    Refs.ChoppedTomato,
-                    Refs.ChoppedSpinach
+                    Refs.BaconPortion,
+                    Refs.ChoppedCheese
                 }
             }
         };
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var parent = Prefab.GetChild("Tomato Spinach.001");
-            var tomato = parent.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
 
-            parent.ApplyMaterialToChild("Chopped Spinach.001/Spinaches.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
-            tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");
-            tomato.ApplyMaterialToChild("Liquid.001", "Tomato Flesh 2");
-            tomato.ApplyMaterialToChild("Skin", "Tomato");
+            Prefab.ApplyMaterialToChild("Bacon Portion.001", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name);
+
+            Prefab.GetChild("Cheese - Grated").ApplyMaterialToChildren("Potato - Chopped", "Cheese - Default");
 
             Prefab.ApplyMaterialToChild("Omelette.001", "Bread", "Egg - Yolk");
 
-            Prefab.GetComponent<CookedTomatoSpinachOmeletteItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<CookedBaconCheeseOmeletteItemGroupView>()?.Setup(Prefab);
 
             if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
             {
@@ -70,7 +67,7 @@ namespace KitchenAmericanBreakfast.Mains
     }
 
 
-    public class CookedTomatoSpinachOmeletteItemGroupView : ItemGroupView
+    public class CookedBaconCheeseOmeletteItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -80,13 +77,13 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Tomato Spinach.001/Tomato - Chopped"),
-                    Item = Refs.ChoppedTomato
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Bacon Portion.001"),
+                    Item = Refs.BaconPortion
                 },
                 new()
                 {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Tomato Spinach.001/Chopped Spinach.001"),
-                    Item = Refs.ChoppedSpinach
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Cheese - Grated"),
+                    Item = Refs.ChoppedCheese
                 }
             };
 
@@ -95,15 +92,16 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 new()
                 {
-                    Item = Refs.ChoppedTomato,
-                    Text = "To"
+                    Item = Refs.BaconPortion,
+                    Text = "Ba"
                 },
                 new()
                 {
-                    Item = Refs.ChoppedSpinach,
-                    Text = "Sp"
+                    Item = Refs.ChoppedCheese,
+                    Text = "Ch"
                 }
             };
         }
     }
 }
+

@@ -755,6 +755,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffd42f9d4da4e7b479d6dfc674cf6567, type: 3}
+--- !u!1001 &2352672098172879288
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7279484157004030376, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_Name
+      value: Cooked Mushroom Onion Omelette
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7948357364401273618, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01f181541f5477d4d9ac0cfe415a19cc, type: 3}
 --- !u!1001 &2758700651630419617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,6 +1154,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2cd529d4aa7f814baa8d5eb218d9599, type: 3}
+--- !u!1001 &5247513872759387753
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_RootOrder
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2535212617766403446, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2910788658980038604, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
+      propertyPath: m_Name
+      value: Mushroom Onion Omelette
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22ed314ec6932824191095a8f6adc464, type: 3}
 --- !u!1001 &5368403114314833829
 PrefabInstance:
   m_ObjectHideFlags: 0

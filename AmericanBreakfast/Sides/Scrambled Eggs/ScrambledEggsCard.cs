@@ -27,7 +27,7 @@ namespace KitchenAmericanBreakfast.Sides
         {
             Refs.Wok,
             Refs.Egg,
-            Refs.Milk
+            //Refs.Milk
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
@@ -38,7 +38,7 @@ namespace KitchenAmericanBreakfast.Sides
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Crack an egg, and combine with a portion of milk. Cook in wok, portion, and serve with plated main." }
+            { Locale.English, "Crack an egg, then chop again to mix. Cook in wok, portion, and serve with plated main." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
