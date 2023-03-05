@@ -36,7 +36,8 @@ namespace KitchenAmericanBreakfast.Mains
             Refs.Egg,
             //Refs.Milk,
             Refs.Cheese,
-            Refs.Pork
+            Refs.Pork,
+            Refs.Plate
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {

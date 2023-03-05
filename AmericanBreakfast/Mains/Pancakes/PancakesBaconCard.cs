@@ -35,7 +35,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Dish.IngredientUnlock
             {
-                Ingredient = Refs.Bacon,
+                Ingredient = Refs.BaconPortion,
                 MenuItem = Refs.PlatedPancakes
             }
         };

@@ -29,16 +29,21 @@ namespace KitchenAmericanBreakfast
         public static Item ChoppedMushroom => Find<Item>(ItemReferences.MushroomChopped);
         public static Item Onion => Find<Item>(ItemReferences.Onion);
         public static Item ChoppedOnion => Find<Item>(ItemReferences.OnionChopped);
+        public static ItemGroup Mayo => Find<ItemGroup>(ItemReferences.Mayonnaise);
+        public static Item OilIngredient => Find<Item>(ItemReferences.OilIngredient);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
         public static Process Chop => Find<Process>(ProcessReferences.Chop);
         public static Process Knead => Find<Process>(ProcessReferences.Knead);
         public static Process Oven => Find<Process>(ProcessReferences.RequireOven);
+
+        // Appliances
+        public static Appliance IceCreamProvider => Find<Appliance>(ApplianceReferences.SourceIceCream);
         #endregion
 
         #region IngredientLib References
-        public static Item Pork => Find<Item>(IngredientLib.References.GetIngredient("pork"));
+        public static Item Pork => (Item)GetCustomGameDataObject(IngredientLib.References.GetIngredient("pork"))?.GameDataObject; //Find<Item>(IngredientLib.References.GetIngredient("pork"));
         public static Item Bacon => Find<Item>(IngredientLib.References.GetIngredient("bacon"));
         public static Item Syrup => Find<Item>(IngredientLib.References.GetSplitIngredient("syrup"));
         public static Item SyrupBottle => Find<Item>(IngredientLib.References.GetIngredient("syrup"));
@@ -84,6 +89,13 @@ namespace KitchenAmericanBreakfast
         public static ItemGroup PlatedMushroomOnionOmelette => Find<ItemGroup, PlatedMushroomOnionOmelette>();
 
 
+        public static Item Cereal => Find<Item, Cereal>();
+        public static ItemGroup PlatedCereal => Find<ItemGroup, PlatedCereal>();
+        public static Item Quackos => Find<Item, Quackos>();
+        public static Item Qwix => Find<Item, Qwix>();
+        public static Item Cornflakes => Find<Item, Cornflakes>();
+
+
         public static Item OrangeJuice => Find<Item, OrangeJuice>();
         public static ItemGroup OrangeJuiceGlass => Find<ItemGroup, OrangeJuiceGlass>();
         public static Item OrangeJuiceIngredient => Find<Item, OrangeJuiceIngredient>();
@@ -114,6 +126,10 @@ namespace KitchenAmericanBreakfast
         // Appliances
         public static Appliance WaffleIron => Find<Appliance, WaffleIron>();
         public static Appliance WafflePress => Find<Appliance, WafflePress>();
+
+
+        public static Appliance CerealProvider => Find<Appliance, CerealProvider>();
+
 
         public static Appliance OrangeJuiceProvider => Find<Appliance, OrangeJuiceProvider>();
 

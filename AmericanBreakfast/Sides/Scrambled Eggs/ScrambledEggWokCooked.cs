@@ -29,7 +29,7 @@ namespace KitchenAmericanBreakfast.Sides
         public override Item DisposesTo => Refs.Wok;
         public override Item SplitSubItem => Refs.ScrambledEgg;
         public override int SplitCount => 3;
-        public override float SplitSpeed => 1.0f;
+        public override float SplitSpeed => 1.0f; 
         public override List<Item> SplitDepletedItems => new() { Refs.Wok };
 
 

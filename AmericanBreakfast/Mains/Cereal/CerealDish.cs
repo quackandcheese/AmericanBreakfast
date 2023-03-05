@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Entities;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    class OmeletteDish : CustomDish
+    class CerealDish : CustomDish
     {
-        public override string UniqueNameID => "Omelette Dish";
+        public override string UniqueNameID => "Cereal Dish";
         public override DishType Type => DishType.Base;
-        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Tomato Spinach Omelette");
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Cereal Icon");
         public override GameObject IconPrefab => DisplayPrefab;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease; // subject to change
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeIncrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Small;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
@@ -23,63 +24,61 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override List<string> StartingNameSet => new List<string>
         {
-            "The Yolk's On You",
-            "Omelette You Choose",
-            "Pure Eggstasy",
-            "Scrambled Shenanigans",
-            "Eggcellent Eats",
-            "Eggs-treme",
-            "Eggstravaganza",
-            "The Eggstraordinary Kitchen",
-            "Yolked Chefs",
-            "The Crack of Dawn",
-            "Sunny Side Supper",
-            "Egg-cellent service",
-            "Overeasy going",
-            "Mad Scramble",
-            "Fry me to the moon",
-            "Hard-boiled service",
-            "No yolks about it",
-            "I love puns",
-            "Egg Pun"
+            "Cereal-ously Awesome",
+            "Crunch Time",
+            "The Cereal Killer Cafe",
+            "The Cereal Box",
+            "Conveyor Cornflakes",
+            "Cornflakes Cafe",
+            "Cheerio!",
+            "Ce-real With Me",
+            "Let's Be Cerealistic",
+            "The Milky Way",
+            "Cheery O's",
+            "Cheerio Hero",
+            "Super Bowls",
+            "Admiral Crunch",
+            "Honey Bunches of Oafs",
+            "Frooty Loop-de-Loops",
+            "Cheeri-yo Mama",
+            "Apple Jacked-Up",
+            "Magic Trix"
         };
 
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
         {
             new Dish.MenuItem
             {
-                Item = Refs.PlatedOmelette,
+                Item = Refs.PlatedCereal,
                 Phase = MenuPhase.Main,
                 Weight = 1
             }
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.Egg,
-            //Refs.Milk,
-            Refs.Tomato,
-            Refs.Spinach,
+            Refs.Cornflakes,
+            Refs.Milk,
             Refs.Plate
         };
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>
         {
-            Refs.Chop,
-            Refs.Knead,
-            Refs.Cook
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Crack an egg, mix, then cook. Add chopped tomato and chopped spinach as fillings and fold omelette" }
+            { Locale.English, "Grab a bowl of requested cereal, and fill with a portion of milk. Put on plate and serve." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Omelettes", "Adds tomato and basil omelettes as a main", null) )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Cereal", "Adds three different types of cereal as a main", null) )
         };
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            
+            DisplayPrefab.GetChild("Bowl").ApplyMaterialToChild("Small Bowl.001", "Plate");
+            DisplayPrefab.GetChild("Quackos").ApplyMaterialToChildren("Quackos", "Sack");
+
+            DisplayPrefab.ApplyMaterialToChild("Milk", "Coffee Cup"); 
         }
     }
 }

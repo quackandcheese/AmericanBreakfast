@@ -24,6 +24,7 @@ global using System.Reflection;
 
 global using IngredientLib.Util;
 global using ApplianceLib.Api.References;
+global using ApplianceLib.Api;
 
 global using static KitchenData.ItemGroup;
 global using static KitchenLib.Utils.GDOUtils;
@@ -115,6 +116,15 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<CookedMushroomOnionOmelette>();
             AddGameDataObject<MushroomOnionOmelette>();
 
+            // Cereal
+            AddGameDataObject<PlatedCereal>();
+            AddGameDataObject<Cereal>();
+            AddGameDataObject<Quackos>();
+            AddGameDataObject<Qwix>();
+            AddGameDataObject<Cornflakes>();
+            AddGameDataObject<CerealProvider>();
+            AddGameDataObject<CerealDish>();
+
             // OJ
             AddGameDataObject<OrangeJuice>();
             AddGameDataObject<OrangeJuiceIngredient>();
@@ -130,6 +140,8 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<ScrambledEggWokCooked>();
             AddGameDataObject<ScrambledEggsCard>();
 
+            //AddGameDataObject<PlatedScrambledEggs>();
+
             // Hash Browns
             AddGameDataObject<HashBrowns>();
             //AddGameDataObject<HashBrownsWokUncooked>();
@@ -139,8 +151,17 @@ namespace KitchenAmericanBreakfast
             LogInfo("Done loading game data.");
         }
 
+        private bool colorblindSetup = false;
         protected override void OnUpdate()
         {
+            if (!colorblindSetup)
+            {
+                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind").AddApplianceColorblindLabel("Co");
+                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind (1)").AddApplianceColorblindLabel("Tr");
+                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind (2)").AddApplianceColorblindLabel("Ch");
+
+                colorblindSetup = true;
+            }
         }
 
         protected override void OnPostActivate(KitchenMods.Mod mod)
@@ -176,6 +197,29 @@ namespace KitchenAmericanBreakfast
                     Result = Refs.MixedEgg,
                     Duration = 0.75f
                 });
+
+                /*Refs.Mayo.DerivedSets.Remove(Refs.OilIngredient);
+
+                Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
+                {
+                    Min = 1,
+                    Max = 1,
+                    Items = new()
+                    {
+                        Refs.OilIngredient
+                    }
+                });
+
+                Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
+                {
+                    Min = 1,
+                    Max = 1,
+                    Items = new()
+                    {
+                        Refs.CrackedEgg,
+                        Refs.MixedEgg
+                    }
+                });*/
 
                 Refs.Bacon.SplitDepletedItems.Add(Refs.BaconPortion);
                 Refs.Bacon.SplitSubItem = Refs.BaconPortion;
