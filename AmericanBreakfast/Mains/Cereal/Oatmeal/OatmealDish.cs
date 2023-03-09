@@ -1,41 +1,54 @@
-﻿using System;
+﻿using KitchenData;
+using KitchenLib.Customs;
+using KitchenLib.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KitchenAmericanBreakfast.Sides
+namespace KitchenAmericanBreakfast.Mains
 {
-    class OrangeJuiceCard : CustomDish
+    class OatmealDish : CustomDish
     {
-        public override string UniqueNameID => "OrangeJuiceCard";
-        public override DishType Type => DishType.Side;
+        public override string UniqueNameID => "Oatmeal Dish";
+        public override DishType Type => DishType.Main;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
+        public override List<Unlock> HardcodedRequirements => new()
+        {
+            Refs.CerealDish
+        };
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
         {
             new Dish.MenuItem
             {
-                Item = Refs.OrangeJuiceGlass,
-                Phase = MenuPhase.Side,
+                Item = Refs.PlatedOatmeal,
+                Phase = MenuPhase.Main,
                 Weight = 1
             }
         };
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
-            Refs.OrangeJuice,
-            ApplianceLibGDOs.Refs.Cup
+            Refs.Oats,
+            Refs.Pot,
+            Refs.Water
+        };
+
+        public override HashSet<Process> RequiredProcesses => new HashSet<Process>
+        {
+            Refs.Cook
         };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Grab a cup and portion orange juice from carton" }
+            { Locale.English, "Add water and oats to a pot. Cook to make oatmeal. Portion and serve" }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Orange Juice", "Adds orange juice as a side", "Pulp-free") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Oatmeal", "Adds oatmeal as a main", null) )
         };
     }
 }

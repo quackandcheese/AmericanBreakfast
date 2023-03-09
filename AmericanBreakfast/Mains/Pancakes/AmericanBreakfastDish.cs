@@ -57,7 +57,7 @@
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Combine flour, cracked egg, sugar, and mix together. Portion, cook, plate, and serve. Customers can order up to 3 pancakes in a stack." }
+            { Locale.English, "Combine flour, cracked (or mixed) egg, sugar, and mix together. Portion, cook, plate, and serve. Customers can order up to 3 pancakes in a stack." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

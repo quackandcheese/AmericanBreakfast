@@ -49,7 +49,7 @@
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Combine flour, egg, sugar, and mix. Put batter in waffle iron, and close to cook. When cooked, open the iron, plate, and serve." }
+            { Locale.English, "Combine flour, cracked (or mixed) egg, sugar, and mix. Put batter in waffle iron, and close to cook. When cooked, open the iron, plate, and serve." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

@@ -14,6 +14,8 @@ namespace KitchenAmericanBreakfast
         public static Item BurnedWok => Find<Item>(ItemReferences.WokBurned);
         public static Item Flour => Find<Item>(ItemReferences.Flour);
         public static Item Egg => Find<Item>(ItemReferences.Egg);
+        public static Item Pot => Find<Item>(ItemReferences.Pot);
+        public static Item Water => Find<Item>(ItemReferences.Water);
         public static Item CrackedEgg => Find<Item>(ItemReferences.EggCracked);
         public static Item Sugar => Find<Item>(ItemReferences.Sugar);
         public static Item Burnt => Find<Item>(ItemReferences.BurnedFood);
@@ -31,6 +33,7 @@ namespace KitchenAmericanBreakfast
         public static Item ChoppedOnion => Find<Item>(ItemReferences.OnionChopped);
         public static ItemGroup Mayo => Find<ItemGroup>(ItemReferences.Mayonnaise);
         public static Item OilIngredient => Find<Item>(ItemReferences.OilIngredient);
+        public static Item CookedPieCrust => Find<Item>(ItemReferences.PieCrustCooked);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -45,6 +48,9 @@ namespace KitchenAmericanBreakfast
         #region IngredientLib References
         public static Item Pork => (Item)GetCustomGameDataObject(IngredientLib.References.GetIngredient("pork"))?.GameDataObject; //Find<Item>(IngredientLib.References.GetIngredient("pork"));
         public static Item Bacon => Find<Item>(IngredientLib.References.GetIngredient("bacon"));
+        public static Item Blueberries => Find<Item>(IngredientLib.References.GetIngredient("blueberries"));
+        public static Item Oats => Find<Item>(IngredientLib.References.GetIngredient("oats"));
+        public static Item Cinnamon => Find<Item>(IngredientLib.References.GetIngredient("cinnamon"));
         public static Item Syrup => Find<Item>(IngredientLib.References.GetSplitIngredient("syrup"));
         public static Item SyrupBottle => Find<Item>(IngredientLib.References.GetIngredient("syrup"));
         public static Item EggNoodle => Find<Item>(IngredientLib.References.GetIngredient("egg dough"));
@@ -96,6 +102,18 @@ namespace KitchenAmericanBreakfast
         public static Item Cornflakes => Find<Item, Cornflakes>();
 
 
+        public static Item OatmealPortion => Find<Item, OatmealPortion>();
+        public static ItemGroup Oatmeal => Find<ItemGroup, Oatmeal>();
+        public static ItemGroup PlatedOatmeal => Find<ItemGroup, PlatedOatmeal>();
+        public static ItemGroup OatmealPot => Find<ItemGroup, OatmealPot>();
+        public static Item OatmealPotCooked => Find<Item, OatmealPotCooked>();
+
+
+        public static ItemGroup PlatedQuiche => Find<ItemGroup, PlatedQuiche>();
+        public static ItemGroup UncookedQuiche => Find<ItemGroup, UncookedQuiche>();
+        public static Item CookedQuiche => Find<Item, CookedQuiche>();
+
+
         public static Item OrangeJuice => Find<Item, OrangeJuice>();
         public static ItemGroup OrangeJuiceGlass => Find<ItemGroup, OrangeJuiceGlass>();
         public static Item OrangeJuiceIngredient => Find<Item, OrangeJuiceIngredient>();
@@ -118,6 +136,8 @@ namespace KitchenAmericanBreakfast
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
         public static Dish ButterCard => Find<Dish, ButterCard>();
         public static Dish OmeletteDish => Find<Dish, OmeletteDish>();
+        public static Dish CerealDish => Find<Dish, CerealDish>();
+        public static Dish OatmealDish => Find<Dish, OatmealDish>();
 
         public static Dish WafflesChickenCard => Find<Dish, WafflesChickenCard>();
 

@@ -13,6 +13,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
         public override ItemValue ItemValue => ItemValue.Medium;
+        public override string ColourBlindTag => "MuO";
 
         public override void OnRegister(GameDataObject gameDataObject)
         {

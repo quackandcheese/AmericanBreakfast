@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Entities;
+using Unity.Properties;
 using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -93,6 +95,20 @@ namespace KitchenAmericanBreakfast.Utils
         internal static void SetupGenericFlourSack(GameObject prefab, string material)
         {
             prefab.ApplyMaterialToChild("FlourSack", "Sack", material);
+        }
+
+        internal static void SetupPot(GameObject prefab)
+        {
+            var pot = prefab.GetChildFromPath("Pot/Pot.001");
+            pot.ApplyMaterialToChild("Cylinder", "Metal");
+
+            pot.ApplyMaterialToChild("Cylinder.003", "Metal Dark");
+        }
+
+        internal static void SetupPlate(GameObject prefab)
+        {
+            var plate = prefab.GetChildFromPath("Plate/Plate");
+            plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
         }
     }
 }

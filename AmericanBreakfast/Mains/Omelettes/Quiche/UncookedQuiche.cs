@@ -1,22 +1,15 @@
-﻿using Kitchen;
-using KitchenAmericanBreakfast.Utils;
-using KitchenData;
-using KitchenLib.Colorblind;
-using KitchenLib.Customs;
-using KitchenLib.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace KitchenAmericanBreakfast.Mains
 {
-    internal class UnmixedBatter : CustomItemGroup<UnmixedBatterItemGroupView>
+    class UncookedQuiche : CustomItemGroup<UncookedQuicheItemGroupView>
     {
-        public override string UniqueNameID => "UnmixedBatter";
-        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("UnmixedBatter");
+        public override string UniqueNameID => "Uncooked Quiche";
+        public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("Uncooked Quiche");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         //public override ItemStorage ItemStorageFlags => ItemStorage.StackableFood;
 
@@ -24,12 +17,11 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new ItemGroup.ItemSet()
             {
-                Max = 2,
-                Min = 2,
+                Max = 1,
+                Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.Flour,
-                    Refs.Sugar,
+                    Refs.CookedPieCrust
                 }
             },
             new ItemGroup.ItemSet()
@@ -56,22 +48,25 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Item.ItemProcess
             {
-                Duration = 0.5f,
-                Process = Refs.Knead,
-                Result = Refs.Batter
+                Duration = 7f,
+                Process = Refs.Cook,
+                Result = Refs.CookedQuiche
             }
         };
 
 
-        public override void OnRegister(GameDataObject gameDataObject)
+        public override void OnRegister(GameDataObject gameDataObject) 
         {
-            Prefab.ApplyMaterialToChild("Bowl", "Metal Dark");
-            Prefab.ApplyMaterialToChild("Flour", "Flour");
-            Prefab.ApplyMaterialToChild("Sugar", "Sugar");
+            var crust = Prefab.GetChild("Pie Cooked");
+
+            crust.ApplyMaterialToChild("Crust", "Cooked Pastry");
+            crust.ApplyMaterialToChild("Lattice", "Cooked Pastry");
+            crust.ApplyMaterialToChild("Dish", "Plate");
+
             Prefab.ApplyMaterialToChild("Egg", "Egg - White", "Egg - Yolk");
             Prefab.ApplyMaterialToChild("Mixed Egg", "Egg - Yolk");
 
-            Prefab.GetComponent<UnmixedBatterItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<UncookedQuicheItemGroupView>()?.Setup(Prefab);
             if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
             {
                 GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
@@ -79,7 +74,7 @@ namespace KitchenAmericanBreakfast.Mains
             }
         }
     }
-    public class UnmixedBatterItemGroupView : ItemGroupView
+    public class UncookedQuicheItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab)
         {
@@ -87,12 +82,7 @@ namespace KitchenAmericanBreakfast.Mains
             // All of these sub-objects are hidden unless the item is present
             ComponentGroups = new()
             {
-                new()
-                {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Flour"),
-                    Item = Refs.Flour
-                },
-                new()
+                new() 
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Egg"),
                     Item = Refs.CrackedEgg
@@ -101,25 +91,10 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Mixed Egg"),
                     Item = Refs.MixedEgg
-                },
-                new()
-                {
-                    GameObject = GameObjectUtils.GetChildObject(prefab, "Sugar"),
-                    Item = Refs.Sugar
-                },
+                }
             };
             ComponentLabels = new()
             {
-                new ()
-                {
-                    Text = "F",
-                    Item = Refs.Flour
-                },
-                new ()
-                {
-                    Text = "S",
-                    Item = Refs.Sugar
-                },
                 new ()
                 {
                     Text = "E",

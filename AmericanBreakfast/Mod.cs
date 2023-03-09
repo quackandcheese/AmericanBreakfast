@@ -44,7 +44,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.1";
+        public const string MOD_VERSION = "0.2.2";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -116,6 +116,11 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<CookedMushroomOnionOmelette>();
             AddGameDataObject<MushroomOnionOmelette>();
 
+            AddGameDataObject<UncookedQuiche>();
+            AddGameDataObject<CookedQuiche>();
+            AddGameDataObject<PlatedQuiche>();
+            AddGameDataObject<QuicheDish>();
+
             // Cereal
             AddGameDataObject<PlatedCereal>();
             AddGameDataObject<Cereal>();
@@ -124,6 +129,16 @@ namespace KitchenAmericanBreakfast
             AddGameDataObject<Cornflakes>();
             AddGameDataObject<CerealProvider>();
             AddGameDataObject<CerealDish>();
+
+            AddGameDataObject<OatmealDish>();
+            AddGameDataObject<OatmealPortion>();
+            AddGameDataObject<Oatmeal>(); 
+            AddGameDataObject<PlatedOatmeal>();
+            AddGameDataObject<OatmealPot>();
+            AddGameDataObject<OatmealPotCooked>();
+
+            AddGameDataObject<OatmealCinnamon>();
+            AddGameDataObject<OatmealBlueberries>();
 
             // OJ
             AddGameDataObject<OrangeJuice>();
@@ -195,9 +210,8 @@ namespace KitchenAmericanBreakfast
                 {
                     Process = Refs.Chop,
                     Result = Refs.MixedEgg,
-                    Duration = 0.75f
+                    Duration = 1f
                 });
-
                 /*Refs.Mayo.DerivedSets.Remove(Refs.OilIngredient);
 
                 Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
