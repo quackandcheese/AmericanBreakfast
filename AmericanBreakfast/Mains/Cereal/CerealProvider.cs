@@ -39,7 +39,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             Prefab.AddComponent<VariableProviderView>().Animator = Prefab.GetComponent<Animator>();
 
-            var holdTransform = Prefab.GetChildFromPath("HoldPoint").transform;
+            var holdTransform = Prefab.GetChild("HoldPoint").transform;
             var holdPoint = Prefab.AddComponent<HoldPointContainer>();
             holdPoint.HoldPoint = holdTransform; 
 
@@ -60,7 +60,7 @@ namespace KitchenAmericanBreakfast.Mains
 
             var cheerios = MaterialHelper.GetMaterialArray("Sack");
             iceCream.ApplyMaterialToChild("Icecream 1", cheerios);
-            iceCream.GetChildFromPath("Icecream 1/Quackos").ApplyMaterialToChildren("Quackos", cheerios);
+            iceCream.GetChild("Icecream 1/Quackos").ApplyMaterialToChildren("Quackos", cheerios);
 
             var qwix = MaterialHelper.GetMaterialArray("Qwix", "Strawberry", "Egg - Yolk", "Lettuce", "Sea");
             iceCream.ApplyMaterialToChild("Icecream 2", qwix);
@@ -68,7 +68,7 @@ namespace KitchenAmericanBreakfast.Mains
 
             var cornflakes = MaterialHelper.GetMaterialArray("Sweetcorn - Cooked");
             iceCream.ApplyMaterialToChild("Icecream 3", cornflakes);
-            iceCream.GetChildFromPath("Icecream 3/Cornflakes").ApplyMaterialToChildren("Cornflakes", cornflakes);
+            iceCream.GetChild("Icecream 3/Cornflakes").ApplyMaterialToChildren("Cornflakes", cornflakes);
 
         }
     }

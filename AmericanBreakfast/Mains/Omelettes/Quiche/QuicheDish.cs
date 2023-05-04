@@ -43,7 +43,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Knead flour (or add water) to create dough, then knead into pie crust. Add cracked (or mixed) egg and cook." }
+            { Locale.English, "Knead flour (or add water) to create dough, then knead into pie crust. Cook the pie crust once, then add cracked (or mixed) egg and cook again." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

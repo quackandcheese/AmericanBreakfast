@@ -72,11 +72,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Mixed Egg", "Egg - Yolk");
 
             Prefab.GetComponent<UnmixedBatterItemGroupView>()?.Setup(Prefab);
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
     public class UnmixedBatterItemGroupView : ItemGroupView

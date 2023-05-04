@@ -1,4 +1,6 @@
-﻿namespace KitchenAmericanBreakfast.Mains
+﻿using KitchenLib.Preferences;
+
+namespace KitchenAmericanBreakfast.Mains
 {
     class AmericanBreakfastDish : CustomDish
     {
@@ -67,7 +69,7 @@
         public override void OnRegister(GameDataObject gameDataObject)
         {
             var pancake = DisplayPrefab.GetChild("Pancakes");
-            var plate = DisplayPrefab.GetChildFromPath("Plate/Plate.001");
+            var plate = DisplayPrefab.GetChild("Plate/Plate.001");
 
             //Visuals
 

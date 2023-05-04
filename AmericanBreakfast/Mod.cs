@@ -22,7 +22,7 @@ global using System.Linq;
 global using System.Reflection;
 
 
-global using IngredientLib.Util;
+//global using IngredientLib.Util;
 global using ApplianceLib.Api.References;
 global using ApplianceLib.Api;
 
@@ -31,6 +31,7 @@ global using static KitchenLib.Utils.GDOUtils;
 global using static KitchenLib.Utils.KitchenPropertiesUtils;
 using TMPro;
 using Object = UnityEngine.Object;
+using KitchenLib.Preferences;
 
 
 
@@ -44,12 +45,24 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.2";
+        public const string MOD_VERSION = "0.2.3";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
         // e.g. ">=1.1.3" current and all future
         // e.g. ">=1.1.3 <=1.2.3" for all from/until
+
+
+        #region Preferences
+        public const string FOV_ID = "fov";
+        public const string SENSITIVITY_ID = "sensitivity";
+        public const string MIX_EGG_METHOD = "mixEggMethod";
+        public const string PANCAKE_OR_WAFFLES_ID = "pancakesOrWaffles";
+        #endregion
+
+        internal static PreferenceManager PrefManager;
+        internal static PreferenceInt MixEggMethodPreference = new PreferenceInt(MIX_EGG_METHOD, 0);
+        internal static PreferenceInt PancakesOrWafflesPreference = new PreferenceInt(PANCAKE_OR_WAFFLES_ID, 0);
 
         // Boolean constant whose value depends on whether you built with DEBUG or RELEASE mode, useful for testing
 #if DEBUG
@@ -57,7 +70,7 @@ namespace KitchenAmericanBreakfast
 #else
         public const bool DEBUG_MODE = false;
 #endif
-
+         
         public static AssetBundle Bundle;
 
         public Mod() : base(MOD_GUID, MOD_NAME, MOD_AUTHOR, MOD_VERSION, MOD_GAMEVERSION, Assembly.GetExecutingAssembly()) { }
@@ -65,6 +78,52 @@ namespace KitchenAmericanBreakfast
         protected override void OnInitialise()
         {
             LogWarning($"{MOD_GUID} v{MOD_VERSION} in use!");
+
+            UpdatePreferenceGDOs();
+        }
+
+        private void UpdatePreferenceGDOs()
+        {
+            Dish americanBreakfastDish = Refs.AmericanBreakfastDish;
+            PreferenceInt pancakesOrWafflesInt = Mod.PrefManager.GetPreference<PreferenceInt>(Mod.PANCAKE_OR_WAFFLES_ID);
+            int pancakesOrWaffles = pancakesOrWafflesInt.Get();
+
+            if (americanBreakfastDish != null)
+            {
+                if (pancakesOrWaffles == 0)
+                {
+                    // Set ResultingMenuItems to Pancakes
+                    typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(americanBreakfastDish,
+                        new List<Dish.MenuItem>
+                        {
+                            new Dish.MenuItem
+                            {
+                                Item = Refs.PlatedPancakes,
+                                Phase = MenuPhase.Main,
+                                Weight = 1
+                            }
+                        });
+
+                    /*var dish = typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+                    var list = dish.GetValue(americanBreakfastDish);
+                    dish.FieldType.GetMethod("Add").Invoke(list, new[] { innerValue });*/
+                }
+                else
+                {
+                    // Set ResultingMenuItems to Waffles
+                    typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(americanBreakfastDish,
+                        new List<Dish.MenuItem>
+                        {
+                            new Dish.MenuItem
+                            {
+                                Item = Refs.PlatedWaffles,
+                                Phase = MenuPhase.Main,
+                                Weight = 1
+                            }
+                        });
+                }
+            }
         }
 
         private void AddGameData()
@@ -171,9 +230,9 @@ namespace KitchenAmericanBreakfast
         {
             if (!colorblindSetup)
             {
-                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind").AddApplianceColorblindLabel("Co");
-                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind (1)").AddApplianceColorblindLabel("Tr");
-                Refs.CerealProvider.Prefab.GetChildFromPath("Colour Blind (2)").AddApplianceColorblindLabel("Ch");
+                Refs.CerealProvider.Prefab.GetChild("Colour Blind").AddApplianceColorblindLabel("Co");
+                Refs.CerealProvider.Prefab.GetChild("Colour Blind (1)").AddApplianceColorblindLabel("Tr");
+                Refs.CerealProvider.Prefab.GetChild("Colour Blind (2)").AddApplianceColorblindLabel("Ch");
 
                 colorblindSetup = true;
             }
@@ -193,6 +252,19 @@ namespace KitchenAmericanBreakfast
             LogInfo("Done loading asset bundle.");
 
 
+            PrefManager = new PreferenceManager(MOD_GUID);
+
+            PrefManager.RegisterPreference(MixEggMethodPreference);
+            PrefManager.RegisterPreference(PancakesOrWafflesPreference);
+
+            PrefManager.Load();
+
+            ModsPreferencesMenu<PauseMenuAction>.RegisterMenu("American Breakfast", typeof(AmericanBreakfastMenu<PauseMenuAction>), typeof(PauseMenuAction));
+
+            Events.PreferenceMenu_PauseMenu_CreateSubmenusEvent += (s, args) => {
+                args.Menus.Add(typeof(AmericanBreakfastMenu<PauseMenuAction>), new AmericanBreakfastMenu<PauseMenuAction>(args.Container, args.Module_list));
+            };
+
             // Register custom GDOs
             AddGameData();
 
@@ -206,13 +278,13 @@ namespace KitchenAmericanBreakfast
                     Duration = 2f
                 });
 
-                Refs.CrackedEgg.DerivedProcesses.Add(new Item.ItemProcess()
+                /*Refs.CrackedEgg.DerivedProcesses.Add(new Item.ItemProcess()
                 {
                     Process = Refs.Chop,
                     Result = Refs.MixedEgg,
                     Duration = 1f
                 });
-                /*Refs.Mayo.DerivedSets.Remove(Refs.OilIngredient);
+                Refs.Mayo.DerivedSets.Remove(Refs.OilIngredient);
 
                 Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
                 {

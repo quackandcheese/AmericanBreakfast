@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using IngredientLib.Util;
+using static IngredientLib.Util.VisualEffectHelper;
 using static KitchenAmericanBreakfast.Utils.MaterialHelper;
 
 namespace KitchenAmericanBreakfast.Mains

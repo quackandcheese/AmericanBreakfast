@@ -51,18 +51,12 @@ namespace KitchenAmericanBreakfast.Mains
         {
             Prefab.ApplyMaterialToChild("mushroomHalf.017", "Mushroom Dark", "Mushroom Light");
 
-            Prefab.GetChildFromPath("Onion - Chopped.008/Onion - Chopped.009").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
+            Prefab.GetChild("Onion - Chopped.008/Onion - Chopped.009").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
 
             Prefab.ApplyMaterialToChild("Omelette.001", "Bread", "Egg - Yolk");
 
 
             Prefab.GetComponent<CookedMushroomOnionOmeletteItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

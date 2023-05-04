@@ -10,7 +10,6 @@ using System.Text;
 using System.Threading.Tasks;
 using static KitchenData.ItemGroup;
 using UnityEngine;
-using IngredientLib.Util;
 using static KitchenAmericanBreakfast.Utils.MaterialHelper;
 
 namespace KitchenAmericanBreakfast.Mains
@@ -77,13 +76,6 @@ namespace KitchenAmericanBreakfast.Mains
 
 
             Prefab.GetComponent<OatmealPotItemGroupView>()?.Setup(Prefab);
-
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
     public class OatmealPotItemGroupView : ItemGroupView

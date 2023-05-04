@@ -72,13 +72,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Cinnamon", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Cinnamon\""].name);
 
             Prefab.GetComponent<OatmealItemGroupView>()?.Setup(Prefab);
-
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

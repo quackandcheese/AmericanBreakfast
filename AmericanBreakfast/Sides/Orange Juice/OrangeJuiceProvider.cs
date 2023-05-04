@@ -25,7 +25,7 @@ namespace KitchenAmericanBreakfast.Sides
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var holdTransform = Prefab.GetChildFromPath("Block/HoldPoint").transform;
+            var holdTransform = Prefab.GetChild("Block/HoldPoint").transform;
             var holdPoint = Prefab.AddComponent<HoldPointContainer>();
             holdPoint.HoldPoint = holdTransform;
 
@@ -39,7 +39,7 @@ namespace KitchenAmericanBreakfast.Sides
 
 
             // Visuals
-            GameObject counter = Prefab.GetChildFromPath("Block/Counter2");
+            GameObject counter = Prefab.GetChild("Block/Counter2");
             var paintedWood = MaterialHelper.GetMaterialArray("Wood 4 - Painted");
             var defaultWood = MaterialHelper.GetMaterialArray("Wood - Default");
             counter.ApplyMaterialToChild("Counter", paintedWood);
@@ -49,7 +49,7 @@ namespace KitchenAmericanBreakfast.Sides
             counter.ApplyMaterialToChild("Handles", "Knob");
 
 
-            Prefab.GetChildFromPath("Block/HoldPoint/OrangeJuice/Carton").ApplyMaterial("Plastic - Orange", "Plastic - White", "Plastic - Green");
+            Prefab.GetChild("Block/HoldPoint/OrangeJuice/Carton").ApplyMaterial("Plastic - Orange", "Plastic - White", "Plastic - Green");
             var crate = Prefab.GetChild("Crate");
             crate.ApplyMaterialToChild("Box", "Wood");
             crate.GetChild("Ice").ApplyMaterialToChildren("Cube", "Ice");

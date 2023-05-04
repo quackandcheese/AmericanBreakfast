@@ -44,7 +44,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var plate = Prefab.GetChildFromPath("Plate/Plate");
+            var plate = Prefab.GetChild("Plate/Plate");
             var scrambled = Prefab.GetChild("Scrambled Eggs");
 
 

@@ -69,12 +69,6 @@ namespace KitchenAmericanBreakfast.Mains
 
 
             Prefab.GetComponent<PlatedQuicheItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

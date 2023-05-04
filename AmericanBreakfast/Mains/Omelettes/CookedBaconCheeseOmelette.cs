@@ -57,12 +57,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Omelette.001", "Bread", "Egg - Yolk");
 
             Prefab.GetComponent<CookedBaconCheeseOmeletteItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

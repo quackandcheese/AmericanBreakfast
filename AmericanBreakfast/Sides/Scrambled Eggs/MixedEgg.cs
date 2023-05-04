@@ -1,6 +1,6 @@
 ﻿namespace KitchenAmericanBreakfast.Sides
 {
-    class MixedEgg : CustomItem//CustomItemGroup<MixedEggItemGroupView>
+    class MixedEgg : CustomItemGroup<MixedEggItemGroupView>
     {
         public override string UniqueNameID => "MixedEgg";
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("MixedEgg");
@@ -9,7 +9,7 @@
         public override ItemValue ItemValue => ItemValue.Medium;
         public override string ColourBlindTag => "Egg";
 
-        /*public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
+        public override List<ItemGroup.ItemSet> Sets => new List<ItemGroup.ItemSet>()
         {
             new ItemGroup.ItemSet()
             {
@@ -29,7 +29,7 @@
                     Refs.CrackedEgg
                 }
             }
-        };*/
+        };
 
         public override List<Item.ItemProcess> Processes => new List<Item.ItemProcess>
         {
@@ -46,11 +46,11 @@
             Prefab.ApplyMaterialToChild("Cylinder.002", "Metal Dark");
             Prefab.ApplyMaterialToChild("Plane", "Egg - Yolk");
 
-            //Prefab.GetComponent<MixedEggItemGroupView>()?.Setup(Prefab);
+            Prefab.GetComponent<MixedEggItemGroupView>()?.Setup(Prefab);
         }
     }
 
-    /*public class MixedEggItemGroupView : ItemGroupView
+    public class MixedEggItemGroupView : ItemGroupView
     {
         internal void Setup(GameObject prefab) =>
             // This tells which sub-object of the prefab corresponds to each component of the ItemGroup
@@ -68,5 +68,5 @@
                     Item = Refs.CrackedEgg
                 }
             };
-    }*/
+    }
 }

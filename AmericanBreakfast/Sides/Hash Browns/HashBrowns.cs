@@ -28,7 +28,7 @@ namespace KitchenAmericanBreakfast.Sides
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            Prefab.GetChildFromPath("Plate.002/Plate.003/Cylinder.001").ApplyMaterial("Plate", "Plate - Ring");
+            Prefab.GetChild("Plate.002/Plate.003/Cylinder.001").ApplyMaterial("Plate", "Plate - Ring");
             Prefab.ApplyMaterialToChild("Hash Browns.002", "Dumplings Cooked", "Dumplings Burns");
 
             SidePrefab.ApplyMaterialToChild("Hash Browns.002", "Dumplings Cooked", "Dumplings Burns");

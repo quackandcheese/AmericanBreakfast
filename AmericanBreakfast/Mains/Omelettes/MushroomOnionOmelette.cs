@@ -19,7 +19,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             Prefab.ApplyMaterialToChild("mushroomHalf.016", "Mushroom Dark", "Mushroom Light");
 
-            Prefab.GetChildFromPath("Onions").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
+            Prefab.GetChild("Onions").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
 
             Prefab.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
         }

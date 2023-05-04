@@ -17,7 +17,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var tomato = Prefab.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
+            var tomato = Prefab.GetChild("Tomato - Chopped/Tomato Sliced");
 
             Prefab.ApplyMaterialToChild("Spinaches", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
             tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");

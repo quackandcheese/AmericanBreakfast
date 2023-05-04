@@ -52,12 +52,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.GetChild("Quackos").ApplyMaterialToChildren("Quackos", "Sack");
 
             Prefab.GetComponent<CerealItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

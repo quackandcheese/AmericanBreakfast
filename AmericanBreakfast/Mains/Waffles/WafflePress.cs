@@ -68,7 +68,7 @@ namespace KitchenAmericanBreakfast.Mains
 
             animator.SetValue(applianceProcessView, Prefab.GetComponent<Animator>());
 
-            var holdTransform = Prefab.GetChildFromPath("HoldPoint").transform;
+            var holdTransform = Prefab.GetChild("HoldPoint").transform;
             var holdPoint = Prefab.AddComponent<HoldPointContainer>();
             holdPoint.HoldPoint = holdTransform;
 

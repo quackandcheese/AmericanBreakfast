@@ -56,8 +56,8 @@ namespace KitchenAmericanBreakfast.Mains
         public override void OnRegister(GameDataObject gameDataObject)
         {
             var omelette = Prefab.GetChild("Tomato Spinach Omelette");
-            var tomatoes = omelette.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
-            var plate = Prefab.GetChildFromPath("Plate/Plate");
+            var tomatoes = omelette.GetChild("Tomato - Chopped/Tomato Sliced");
+            var plate = Prefab.GetChild("Plate/Plate");
 
 
             //Tomato Spinach
@@ -71,7 +71,7 @@ namespace KitchenAmericanBreakfast.Mains
 
             //Bacon Cheese
             var bcOmelette = Prefab.GetChild("Bacon Cheese Omelette");
-            var baconCheese = bcOmelette.GetChildFromPath("Bacon Cheese");
+            var baconCheese = bcOmelette.GetChild("Bacon Cheese");
 
             baconCheese.ApplyMaterialToChild("Bacon Portion.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name); ;
             baconCheese.ApplyMaterialToChild("Cheese", "Cheese - Default");
@@ -83,7 +83,7 @@ namespace KitchenAmericanBreakfast.Mains
             var moOmelette = Prefab.GetChild("Mushroom Onion Omelette");
             moOmelette.ApplyMaterialToChild("mushroomHalf.016", "Mushroom Dark", "Mushroom Light");
 
-            moOmelette.GetChildFromPath("Onions").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
+            moOmelette.GetChild("Onions").ApplyMaterialToChildren("Circle", "Onion - Flesh", "Onion");
 
             moOmelette.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
 
@@ -93,12 +93,6 @@ namespace KitchenAmericanBreakfast.Mains
 
 
             Prefab.GetComponent<PlatedOmelettesItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

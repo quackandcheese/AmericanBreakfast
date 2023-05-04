@@ -17,7 +17,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            var baconCheese = Prefab.GetChildFromPath("Bacon Cheese");
+            var baconCheese = Prefab.GetChild("Bacon Cheese");
 
             baconCheese.ApplyMaterialToChild("Bacon Portion.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name); ;
             baconCheese.ApplyMaterialToChild("Cheese", "Cheese - Default");

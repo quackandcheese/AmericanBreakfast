@@ -34,7 +34,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Egg,
-            //Refs.Milk,
+            Refs.Milk,
             Refs.Cheese,
             Refs.Pork,
             Refs.Plate

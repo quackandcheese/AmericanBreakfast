@@ -29,7 +29,7 @@ namespace KitchenAmericanBreakfast.Mains
             }
         };
 
-        public override void OnRegister(GameDataObject gameDataObject)
+        public override void OnRegister(Item item)
         {
             Prefab.ApplyMaterialToChild("Pancake.001", "Raw Pastry", "Onion");
         }

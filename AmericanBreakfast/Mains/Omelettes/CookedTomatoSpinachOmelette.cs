@@ -50,7 +50,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override void OnRegister(GameDataObject gameDataObject)
         {
             var parent = Prefab.GetChild("Tomato Spinach.001");
-            var tomato = parent.GetChildFromPath("Tomato - Chopped/Tomato Sliced");
+            var tomato = parent.GetChild("Tomato - Chopped/Tomato Sliced");
 
             parent.ApplyMaterialToChild("Chopped Spinach.001/Spinaches.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
             tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");
@@ -60,12 +60,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Omelette.001", "Bread", "Egg - Yolk");
 
             Prefab.GetComponent<CookedTomatoSpinachOmeletteItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

@@ -56,7 +56,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override void OnRegister(GameDataObject gameDataObject)
         {
             var pancake = Prefab.GetChild("Pancakes");
-            var plate = Prefab.GetChildFromPath("Plate/Plate.001");
+            var plate = Prefab.GetChild("Plate/Plate.001");
 
             //Visuals
 
@@ -74,17 +74,11 @@ namespace KitchenAmericanBreakfast.Mains
 
             // Scrambies
             /*var scrambies = Prefab.GetChild("ScrambledEggs");
-            scrambies.GetChildFromPath("Plate.002/Plate.003/Cylinder.001").ApplyMaterial("Plate", "Plate - Ring");
+            scrambies.GetChild("Plate.002/Plate.003/Cylinder.001").ApplyMaterial("Plate", "Plate - Ring");
             scrambies.ApplyMaterialToChild("Scrambled Eggs.001", "Egg - Yolk", "Plastic - Orange");*/
 
 
             Prefab.GetComponent<AmericanBreakfastItemGroupView>()?.Setup(Prefab);
-
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
 

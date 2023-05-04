@@ -1,5 +1,4 @@
-﻿using IngredientLib.Util;
-using KitchenLib.Customs;
+﻿using KitchenLib.Customs;
 using KitchenLib.Utils;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace KitchenAmericanBreakfast.Utils
     internal static class MaterialHelper
     {
 
-        public static void ApplyMaterial<T>(this GameObject gameObject, Material[] materials) where T : Renderer
+        /*public static void ApplyMaterial<T>(this GameObject gameObject, Material[] materials) where T : Renderer
         {
             var comp = gameObject.GetComponent<T>();
             if (comp == null)
@@ -64,7 +63,7 @@ namespace KitchenAmericanBreakfast.Utils
         public static void ApplyMaterialToChild(this GameObject gameObject, string childName, params string[] materials)
         {
             gameObject.GetChild(childName).ApplyMaterial(GetMaterialArray(materials));
-        }
+        }*/
 
 
         public static Material[] GetMaterialArray(params string[] materials)
@@ -99,7 +98,7 @@ namespace KitchenAmericanBreakfast.Utils
 
         internal static void SetupPot(GameObject prefab)
         {
-            var pot = prefab.GetChildFromPath("Pot/Pot.001");
+            var pot = prefab.GetChild("Pot/Pot.001");
             pot.ApplyMaterialToChild("Cylinder", "Metal");
 
             pot.ApplyMaterialToChild("Cylinder.003", "Metal Dark");
@@ -107,7 +106,7 @@ namespace KitchenAmericanBreakfast.Utils
 
         internal static void SetupPlate(GameObject prefab)
         {
-            var plate = prefab.GetChildFromPath("Plate/Plate");
+            var plate = prefab.GetChild("Plate/Plate");
             plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
         }
     }

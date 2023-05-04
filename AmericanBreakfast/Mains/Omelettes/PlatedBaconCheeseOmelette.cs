@@ -44,11 +44,11 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            /*var plate = Prefab.GetChildFromPath("Plate/Plate");
+            /*var plate = Prefab.GetChild("Plate/Plate");
 
             //Bacon Cheese
             var bcOmelette = Prefab.GetChild("Bacon Cheese Omelette");
-            var baconCheese = bcOmelette.GetChildFromPath("Bacon Cheese");
+            var baconCheese = bcOmelette.GetChild("Bacon Cheese");
 
             baconCheese.ApplyMaterialToChild("Bacon Portion.002", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon Fat\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Bacon\""].name); ;
             baconCheese.ApplyMaterialToChild("Cheese", "Cheese - Default");

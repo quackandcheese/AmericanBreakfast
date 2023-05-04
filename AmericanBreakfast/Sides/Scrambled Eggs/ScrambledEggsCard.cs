@@ -27,7 +27,7 @@ namespace KitchenAmericanBreakfast.Sides
         {
             Refs.Wok,
             Refs.Egg,
-            //Refs.Milk
+            Refs.Milk
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>

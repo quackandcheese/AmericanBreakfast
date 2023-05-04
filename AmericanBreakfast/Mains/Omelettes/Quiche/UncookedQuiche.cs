@@ -48,7 +48,7 @@ namespace KitchenAmericanBreakfast.Mains
         {
             new Item.ItemProcess
             {
-                Duration = 7f,
+                Duration = 3f,
                 Process = Refs.Cook,
                 Result = Refs.CookedQuiche
             }
@@ -67,11 +67,6 @@ namespace KitchenAmericanBreakfast.Mains
             Prefab.ApplyMaterialToChild("Mixed Egg", "Egg - Yolk");
 
             Prefab.GetComponent<UncookedQuicheItemGroupView>()?.Setup(Prefab);
-            if (Prefab.TryGetComponent<ItemGroupView>(out var itemGroupView))
-            {
-                GameObject clonedColourBlind = ColorblindUtils.cloneColourBlindObjectAndAddToItem(GameDataObject as ItemGroup);
-                ColorblindUtils.setColourBlindLabelObjectOnItemGroupView(itemGroupView, clonedColourBlind);
-            }
         }
     }
     public class UncookedQuicheItemGroupView : ItemGroupView
