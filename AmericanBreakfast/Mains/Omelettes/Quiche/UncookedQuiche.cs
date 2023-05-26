@@ -31,7 +31,8 @@ namespace KitchenAmericanBreakfast.Mains
                 Items = new List<Item>()
                 {
                     Refs.CrackedEgg,
-                    Refs.MixedEgg
+                    Refs.MixedEgg,
+                    Refs.MixedEggMilk
                 }
             }/*,
             new ItemGroup.ItemSet()
@@ -86,6 +87,11 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Mixed Egg"),
                     Item = Refs.MixedEgg
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "Mixed Egg"),
+                    Item = Refs.MixedEggMilk
                 }
             };
             ComponentLabels = new()
@@ -99,6 +105,11 @@ namespace KitchenAmericanBreakfast.Mains
                 {
                     Text = "E",
                     Item = Refs.MixedEgg
+                },
+                new ()
+                {
+                    Text = "E",
+                    Item = Refs.MixedEggMilk
                 }
             };
         }

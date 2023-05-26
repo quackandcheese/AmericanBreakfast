@@ -32,6 +32,7 @@ global using static KitchenLib.Utils.KitchenPropertiesUtils;
 using TMPro;
 using Object = UnityEngine.Object;
 using KitchenLib.Preferences;
+using KitchenLib.Systems;
 
 
 
@@ -45,7 +46,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.3";
+        public const string MOD_VERSION = "0.2.4";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -79,49 +80,54 @@ namespace KitchenAmericanBreakfast
         {
             LogWarning($"{MOD_GUID} v{MOD_VERSION} in use!");
 
-            UpdatePreferenceGDOs();
+            
         }
 
         private void UpdatePreferenceGDOs()
         {
             Dish americanBreakfastDish = Refs.AmericanBreakfastDish;
+            Dish wafflesDish = Refs.WafflesDish;
             PreferenceInt pancakesOrWafflesInt = Mod.PrefManager.GetPreference<PreferenceInt>(Mod.PANCAKE_OR_WAFFLES_ID);
             int pancakesOrWaffles = pancakesOrWafflesInt.Get();
 
-            if (americanBreakfastDish != null)
+            PreferenceInt mixEggMethodInt = Mod.PrefManager.GetPreference<PreferenceInt>(Mod.MIX_EGG_METHOD);
+            int mixEggMethod = mixEggMethodInt.Get();
+
+            if (americanBreakfastDish != null && wafflesDish != null)
             {
                 if (pancakesOrWaffles == 0)
                 {
-                    // Set ResultingMenuItems to Pancakes
-                    typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(americanBreakfastDish,
-                        new List<Dish.MenuItem>
-                        {
-                            new Dish.MenuItem
-                            {
-                                Item = Refs.PlatedPancakes,
-                                Phase = MenuPhase.Main,
-                                Weight = 1
-                            }
-                        });
-
-                    /*var dish = typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-
-                    var list = dish.GetValue(americanBreakfastDish);
-                    dish.FieldType.GetMethod("Add").Invoke(list, new[] { innerValue });*/
                 }
                 else
                 {
-                    // Set ResultingMenuItems to Waffles
-                    typeof(Dish).GetField("ResultingMenuItems", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).SetValue(americanBreakfastDish,
-                        new List<Dish.MenuItem>
-                        {
-                            new Dish.MenuItem
-                            {
-                                Item = Refs.PlatedWaffles,
-                                Phase = MenuPhase.Main,
-                                Weight = 1
-                            }
-                        });
+                    wafflesDish.Type = DishType.Base;
+                    americanBreakfastDish.Type = DishType.Main;
+
+                    wafflesDish.Requires.RemoveAt(0);
+                    americanBreakfastDish.Requires.Add(wafflesDish);
+                }
+            }
+
+            if (mixEggMethod == 0)
+            {
+
+            }
+            else
+            {
+
+                List<Dish> dishesToAddMilk = new List<Dish>()
+                {
+                    Refs.OmeletteDish,
+                    Refs.WafflesDish,
+                    Refs.AmericanBreakfastDish,
+                    Refs.ScrambledEggsCard,
+                    Refs.BaconCheeseOmeletteDish,
+                    Refs.MushroomOnionOmeletteDish
+                };
+
+                for (int i = 0; i < dishesToAddMilk.Count; i++)
+                {
+                    dishesToAddMilk[i].MinimumIngredients.Add(Refs.SplitMilk);
                 }
             }
         }
@@ -209,6 +215,7 @@ namespace KitchenAmericanBreakfast
 
             // Scrambled Eggs
             AddGameDataObject<MixedEgg>();
+            AddGameDataObject<MixedEggMilk>();
             AddGameDataObject<ScrambledEgg>();
             AddGameDataObject<ScrambledEggWokUncooked>();
             AddGameDataObject<ScrambledEggWokCooked>();
@@ -278,39 +285,52 @@ namespace KitchenAmericanBreakfast
                     Duration = 2f
                 });
 
-                /*Refs.CrackedEgg.DerivedProcesses.Add(new Item.ItemProcess()
-                {
-                    Process = Refs.Chop,
-                    Result = Refs.MixedEgg,
-                    Duration = 1f
-                });
-                Refs.Mayo.DerivedSets.Remove(Refs.OilIngredient);
-
-                Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
-                {
-                    Min = 1,
-                    Max = 1,
-                    Items = new()
-                    {
-                        Refs.OilIngredient
-                    }
-                });
-
-                Refs.Mayo.DerivedSets.Add(new ItemGroup.ItemSet()
-                {
-                    Min = 1,
-                    Max = 1,
-                    Items = new()
-                    {
-                        Refs.CrackedEgg,
-                        Refs.MixedEgg
-                    }
-                });*/
-
                 Refs.Bacon.SplitDepletedItems.Add(Refs.BaconPortion);
                 Refs.Bacon.SplitSubItem = Refs.BaconPortion;
                 Refs.Bacon.SplitCount = 1;
                 Refs.Bacon.SplitSpeed = 2f;
+
+
+                PreferenceInt mixEggMethodInt = Mod.PrefManager.GetPreference<PreferenceInt>(Mod.MIX_EGG_METHOD);
+                int mixEggMethod = mixEggMethodInt.Get();
+
+                if (mixEggMethod == 0)
+                {
+                    Refs.CrackedEgg.DerivedProcesses.Add(new Item.ItemProcess()
+                    {
+                        Process = Refs.Chop,
+                        Result = Refs.MixedEgg,
+                        Duration = 1f
+                    });
+                }
+
+                Dish americanBreakfastDish = Refs.AmericanBreakfastDish;
+                Dish wafflesDish = Refs.WafflesDish;
+                PreferenceInt pancakesOrWafflesInt = Mod.PrefManager.GetPreference<PreferenceInt>(Mod.PANCAKE_OR_WAFFLES_ID);
+                int pancakesOrWaffles = pancakesOrWafflesInt.Get();
+
+                if (americanBreakfastDish != null && wafflesDish != null)
+                {
+                    if (pancakesOrWaffles == 0)
+                    {
+                        MainMenuDishSystem.MenuOptions.Add(americanBreakfastDish.ID);
+                        MainMenuDishSystem.MenuOptions.Remove(wafflesDish.ID);
+                    }
+                    else
+                    {
+                        MainMenuDishSystem.MenuOptions.Add(wafflesDish.ID);
+                        MainMenuDishSystem.MenuOptions.Remove(americanBreakfastDish.ID);
+                    }
+                }
+            };
+
+            Events.BuildGameDataPostViewInitEvent += delegate (object s, BuildGameDataEventArgs args)
+            {
+                LogInfo("Attempting to update preference GDOs...");
+
+                UpdatePreferenceGDOs();
+
+                LogInfo("Done updating preference GDOs.");
             };
         }
         #region Logging

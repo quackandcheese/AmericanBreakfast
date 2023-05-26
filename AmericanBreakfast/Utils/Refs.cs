@@ -120,6 +120,7 @@ namespace KitchenAmericanBreakfast
 
 
         public static Item MixedEgg => Find<Item, MixedEgg>();
+        public static ItemGroup MixedEggMilk => Find<ItemGroup, MixedEggMilk>();
         public static Item ScrambledEgg => Find<Item, ScrambledEgg>();
         public static Item ScrambledEggWokUncooked => Find<Item, ScrambledEggWokUncooked>();
         public static Item ScrambledEggWokCooked => Find<Item, ScrambledEggWokCooked>();
@@ -136,11 +137,13 @@ namespace KitchenAmericanBreakfast
         public static Dish PancakeBaconCard => Find<Dish, PancakeBaconCard>();
         public static Dish ButterCard => Find<Dish, ButterCard>();
         public static Dish OmeletteDish => Find<Dish, OmeletteDish>();
+        public static Dish BaconCheeseOmeletteDish => Find<Dish, BaconCheeseOmeletteDish>();
+        public static Dish MushroomOnionOmeletteDish => Find<Dish, MushroomOnionOmeletteDish>();
         public static Dish CerealDish => Find<Dish, CerealDish>();
         public static Dish OatmealDish => Find<Dish, OatmealDish>();
 
         public static Dish WafflesChickenCard => Find<Dish, WafflesChickenCard>();
-
+        public static Dish ScrambledEggsCard => Find<Dish, ScrambledEggsCard>();
         public static Dish OrangeJuiceCard => Find<Dish, OrangeJuiceCard>();
 
         // Appliances

@@ -26,8 +26,7 @@ namespace KitchenAmericanBreakfast.Sides
         public override HashSet<Item> MinimumIngredients => new HashSet<Item>
         {
             Refs.Wok,
-            Refs.Egg,
-            Refs.Milk
+            Refs.Egg
         };
 
         public override HashSet<Process> RequiredProcesses => new HashSet<Process>

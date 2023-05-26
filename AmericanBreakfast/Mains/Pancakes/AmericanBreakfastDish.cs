@@ -13,7 +13,6 @@ namespace KitchenAmericanBreakfast.Mains
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Small;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
         public override bool IsSpecificFranchiseTier => false;
-        public override bool IsAvailableAsLobbyOption => true;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
 
@@ -63,7 +62,7 @@ namespace KitchenAmericanBreakfast.Mains
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("American Breakfast", "Adds Pancakes as a Main", "Spontaneous stacks") )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("American Breakfast", "Adds pancakes as a main", "Spontaneous stacks") )
         };
 
         public override void OnRegister(GameDataObject gameDataObject)

@@ -4,6 +4,8 @@
     {
         public override string UniqueNameID => "Waffles Dish";
         public override DishType Type => DishType.Main;
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Waffle");
+        public override GameObject IconPrefab => DisplayPrefab;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;

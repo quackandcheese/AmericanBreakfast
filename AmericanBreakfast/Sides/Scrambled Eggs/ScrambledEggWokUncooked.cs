@@ -41,7 +41,8 @@ namespace KitchenAmericanBreakfast.Sides
                 Min = 1,
                 Items = new List<Item>()
                 {
-                    Refs.MixedEgg
+                    Refs.MixedEgg,
+                    Refs.MixedEggMilk
                 }
             }
         };
@@ -78,6 +79,11 @@ namespace KitchenAmericanBreakfast.Sides
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "MixedEgg"),
                     Item = Refs.MixedEgg
+                },
+                new()
+                {
+                    GameObject = GameObjectUtils.GetChildObject(prefab, "MixedEgg"),
+                    Item = Refs.MixedEggMilk
                 }
             };
         }

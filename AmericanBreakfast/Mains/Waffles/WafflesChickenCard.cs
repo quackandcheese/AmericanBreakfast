@@ -10,7 +10,6 @@ using UnityEngine;
 using Unity.Entities;
 using KitchenAmericanBreakfast.Utils;
 using KitchenAmericanBreakfast;
-using IngredientLib.Util;
 
 namespace KitchenAmericanBreakfast.Mains
 {
