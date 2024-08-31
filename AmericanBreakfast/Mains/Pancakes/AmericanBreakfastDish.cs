@@ -85,6 +85,7 @@ namespace KitchenAmericanBreakfast.Mains
             plate.ApplyMaterialToChild("Cylinder", "Plate", "Plate - Ring");
 
             DisplayPrefab.GetChild("Syrup").ApplyMaterialToChild("Plane.002", "Cooked Batter");
+            DisplayPrefab.GetChild("ScrambledEggsSide").ApplyMaterialToChild("Scrambled Eggs.001", "Egg - Yolk", "Cooked Pastry");
         }
     }
 }
