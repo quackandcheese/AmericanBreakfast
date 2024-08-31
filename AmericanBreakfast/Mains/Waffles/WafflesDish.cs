@@ -13,6 +13,7 @@
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
         public override bool IsAvailableAsLobbyOption => true;
+        public override int Difficulty => 2;
 
         public override List<Unlock> HardcodedRequirements => new()
         {

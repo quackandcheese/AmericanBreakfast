@@ -16,6 +16,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
+        public override int Difficulty => 3;
         public override List<Unlock> HardcodedRequirements => new()
         {
             Refs.OmeletteDish

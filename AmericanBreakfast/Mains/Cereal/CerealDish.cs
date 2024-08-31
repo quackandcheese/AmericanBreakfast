@@ -21,6 +21,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override bool IsAvailableAsLobbyOption => true;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
+        public override int Difficulty => 1;
 
         public override List<string> StartingNameSet => new List<string>
         {

@@ -14,6 +14,7 @@ namespace KitchenAmericanBreakfast.Sides
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Medium;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
+        public override int Difficulty => 1;
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
         {
             new Dish.MenuItem

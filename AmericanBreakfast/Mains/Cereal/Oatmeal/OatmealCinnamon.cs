@@ -17,6 +17,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override bool IsSpecificFranchiseTier => false;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
+        public override int Difficulty => 1;
 
         public override List<Unlock> HardcodedRequirements => new()
         {
