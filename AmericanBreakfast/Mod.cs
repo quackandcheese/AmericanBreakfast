@@ -46,7 +46,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.5";
+        public const string MOD_VERSION = "0.2.6";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -55,8 +55,6 @@ namespace KitchenAmericanBreakfast
 
 
         #region Preferences
-        public const string FOV_ID = "fov";
-        public const string SENSITIVITY_ID = "sensitivity";
         public const string MIX_EGG_METHOD = "mixEggMethod";
         public const string PANCAKE_OR_WAFFLES_ID = "pancakesOrWaffles";
         #endregion
