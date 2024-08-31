@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Entities;
 
 namespace KitchenAmericanBreakfast.Mains
 {
@@ -10,7 +11,7 @@ namespace KitchenAmericanBreakfast.Mains
     {
         public override string UniqueNameID => "Omelette Dish";
         public override DishType Type => DishType.Base;
-        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Tomato Spinach Omelette");
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("OmelettesIcon").AssignMaterialsByNames();
         public override GameObject IconPrefab => DisplayPrefab;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease; // subject to change
         public override CardType CardType => CardType.Default;
@@ -78,7 +79,15 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override void OnRegister(GameDataObject gameDataObject)
         {
-            
+            var omelette = DisplayPrefab.GetChild("Tomato Spinach Omelette");
+            var tomato = omelette.GetChild("Tomato - Chopped/Tomato Sliced");
+
+            omelette.ApplyMaterialToChild("Spinaches", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Spinach Stem\""].name);
+            tomato.ApplyMaterialToChild("Liquid", "Tomato Flesh");
+            tomato.ApplyMaterialToChild("Liquid.001", "Tomato Flesh 2");
+            tomato.ApplyMaterialToChild("Skin", "Tomato");
+
+            omelette.ApplyMaterialToChild("Folded Omelette", "Bread", "Egg - Yolk");
         }
     }
 }

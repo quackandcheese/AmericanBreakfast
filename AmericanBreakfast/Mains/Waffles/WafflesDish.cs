@@ -1,10 +1,13 @@
-﻿namespace KitchenAmericanBreakfast.Mains
+﻿using KitchenLib.Utils;
+using Unity.Entities;
+
+namespace KitchenAmericanBreakfast.Mains
 {
     class WafflesDish : CustomDish
     {
         public override string UniqueNameID => "Waffles Dish";
         public override DishType Type => DishType.Main;
-        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("Waffle");
+        public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("WafflesIcon").AssignMaterialsByNames();
         public override GameObject IconPrefab => DisplayPrefab;
         public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
@@ -60,5 +63,11 @@
         {
             ( Locale.English, LocalisationUtils.CreateUnlockInfo("Waffles", "Adds waffles as a main", "Essentially the same thing as pancakes") )
         };
+
+        public override void OnRegister(GameDataObject gameDataObject)
+        {
+            DisplayPrefab.ApplyMaterialToChild("Butter", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Butter\""].name);
+            DisplayPrefab.ApplyMaterialToChild("drumstick", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Cooked Drumstick\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Cooked Drumstick Bone\""].name);
+        }
     }
 }

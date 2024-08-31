@@ -60,7 +60,7 @@ namespace KitchenAmericanBreakfast.Mains
 
             Prefab.ApplyMaterialToChild("drumstick", CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Cooked Drumstick\""].name, CustomMaterials.CustomMaterialsIndex["IngredientLib - \"Cooked Drumstick Bone\""].name);
 
-
+            
             Prefab.GetComponent<AmericanBreakfastItemGroupView>()?.Setup(Prefab);
         }
     }
