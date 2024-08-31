@@ -29,7 +29,7 @@
                 IsMandatory = true,
                 Items = new List<Item>()
                 {
-                    Refs.SplitMilk
+                    Refs.Milk
                 }
             }
         };

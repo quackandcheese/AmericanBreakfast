@@ -15,6 +15,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override bool IsSpecificFranchiseTier => false;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
+        public override bool IsAvailableAsLobbyOption => true;
 
         public override List<string> StartingNameSet => new List<string>
         {

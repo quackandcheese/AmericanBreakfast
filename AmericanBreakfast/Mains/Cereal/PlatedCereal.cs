@@ -23,7 +23,7 @@ namespace KitchenAmericanBreakfast.Mains
             {
                 Max = 1,
                 Min = 1,
-                IsMandatory = false,
+                IsMandatory = true,
                 Items = new List<Item>()
                 {
                     Refs.Plate
@@ -36,14 +36,14 @@ namespace KitchenAmericanBreakfast.Mains
                 IsMandatory = false,
                 Items = new List<Item>()
                 {
-                    Refs.SplitMilk
+                    Refs.Milk
                 }
             },
             new ItemSet()
             {
                 Max = 1,
                 Min = 1,
-                IsMandatory = true,
+                IsMandatory = false,
                 Items = new List<Item>()
                 {
                     Refs.Quackos,
@@ -103,7 +103,7 @@ namespace KitchenAmericanBreakfast.Mains
                 new()
                 {
                     GameObject = GameObjectUtils.GetChildObject(prefab, "Cereal/Milk"),
-                    Item = Refs.SplitMilk
+                    Item = Refs.Milk
                 }
             };
 

@@ -34,6 +34,7 @@ namespace KitchenAmericanBreakfast
         public static ItemGroup Mayo => Find<ItemGroup>(ItemReferences.Mayonnaise);
         public static Item OilIngredient => Find<Item>(ItemReferences.OilIngredient);
         public static Item CookedPieCrust => Find<Item>(ItemReferences.PieCrustCooked);
+        public static Item Milk => Find<Item>(ItemReferences.Milk);
 
         // Processes
         public static Process Cook => Find<Process>(ProcessReferences.Cook);
@@ -59,8 +60,6 @@ namespace KitchenAmericanBreakfast
         public static Item ButterSlice => Find<Item>(IngredientLib.References.GetSplitIngredient("butter"));
         public static Item CookedDrumstick => Find<Item>(IngredientLib.References.GetIngredient("cooked drumstick"));
         public static Item Drumstick => Find<Item>(IngredientLib.References.GetIngredient("drumstick"));
-        public static Item Milk => Find<Item>(IngredientLib.References.GetIngredient("milk"));
-        public static Item SplitMilk => Find<Item>(IngredientLib.References.GetSplitIngredient("milk"));
         public static Item Spinach => Find<Item>(IngredientLib.References.GetIngredient("spinach"));
         public static Item ChoppedSpinach => Find<Item>(IngredientLib.References.GetIngredient("chopped spinach"));
         #endregion

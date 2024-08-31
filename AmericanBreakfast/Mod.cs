@@ -30,9 +30,9 @@ global using static KitchenData.ItemGroup;
 global using static KitchenLib.Utils.GDOUtils;
 global using static KitchenLib.Utils.KitchenPropertiesUtils;
 using TMPro;
-using Object = UnityEngine.Object;
 using KitchenLib.Preferences;
 using KitchenLib.Systems;
+using IngredientLib.Menu;
 
 
 
@@ -46,7 +46,7 @@ namespace KitchenAmericanBreakfast
         // Mod Version must follow semver notation e.g. "1.2.3"
         public const string MOD_GUID = "QuackAndCheese.PlateUp.AmericanBreakfast";
         public const string MOD_NAME = "American Breakfast";
-        public const string MOD_VERSION = "0.2.4";
+        public const string MOD_VERSION = "0.2.5";
         public const string MOD_AUTHOR = "QuackAndCheese";
         public const string MOD_GAMEVERSION = ">=1.1.3";
         // Game version this mod is designed for in semver
@@ -127,7 +127,7 @@ namespace KitchenAmericanBreakfast
 
                 for (int i = 0; i < dishesToAddMilk.Count; i++)
                 {
-                    dishesToAddMilk[i].MinimumIngredients.Add(Refs.SplitMilk);
+                    dishesToAddMilk[i].MinimumIngredients.Add(Refs.Milk);
                 }
             }
         }
@@ -254,7 +254,7 @@ namespace KitchenAmericanBreakfast
             Bundle.LoadAllAssets<Sprite>();
             var spriteAsset = Bundle.LoadAsset<TMP_SpriteAsset>("CookWaffle");
             TMP_Settings.defaultSpriteAsset.fallbackSpriteAssets.Add(spriteAsset);
-            spriteAsset.material = Object.Instantiate(TMP_Settings.defaultSpriteAsset.material);
+            spriteAsset.material = UnityEngine.Object.Instantiate(TMP_Settings.defaultSpriteAsset.material);
             spriteAsset.material.mainTexture = Bundle.LoadAsset<Texture2D>("CookWaffleTex");
             LogInfo("Done loading asset bundle.");
 
@@ -266,10 +266,15 @@ namespace KitchenAmericanBreakfast
 
             PrefManager.Load();
 
-            ModsPreferencesMenu<PauseMenuAction>.RegisterMenu("American Breakfast", typeof(AmericanBreakfastMenu<PauseMenuAction>), typeof(PauseMenuAction));
+            ModsPreferencesMenu<MenuAction>.RegisterMenu("American Breakfast", typeof(AmericanBreakfastMenu<MenuAction>), typeof(MenuAction));
 
-            Events.PreferenceMenu_PauseMenu_CreateSubmenusEvent += (s, args) => {
-                args.Menus.Add(typeof(AmericanBreakfastMenu<PauseMenuAction>), new AmericanBreakfastMenu<PauseMenuAction>(args.Container, args.Module_list));
+            Events.MainMenuView_SetupMenusEvent += (s, args) =>
+            {
+                args.addMenu.Invoke(args.instance, new object[] { typeof(AmericanBreakfastMenu<MenuAction>), new AmericanBreakfastMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
+            };
+            Events.PlayerPauseView_SetupMenusEvent += (s, args) =>
+            {
+                args.addMenu.Invoke(args.instance, new object[] { typeof(AmericanBreakfastMenu<MenuAction>), new AmericanBreakfastMenu<MenuAction>(args.instance.ButtonContainer, args.module_list) });
             };
 
             // Register custom GDOs
@@ -311,16 +316,26 @@ namespace KitchenAmericanBreakfast
 
                 if (americanBreakfastDish != null && wafflesDish != null)
                 {
-                    if (pancakesOrWaffles == 0)
+                    /*if (pancakesOrWaffles == 0)
                     {
-                        MainMenuDishSystem.MenuOptions.Add(americanBreakfastDish.ID);
-                        MainMenuDishSystem.MenuOptions.Remove(wafflesDish.ID);
+                        foreach (int thing in MainMenuDishSystem.MenuOptions)
+                        {
+                            if (thing == wafflesDish.ID)
+                            {
+                                MainMenuDishSystem.MenuOptions.Remove(thing);
+                            }
+                        }
                     }
                     else
                     {
-                        MainMenuDishSystem.MenuOptions.Add(wafflesDish.ID);
-                        MainMenuDishSystem.MenuOptions.Remove(americanBreakfastDish.ID);
-                    }
+                        foreach (int thing in MainMenuDishSystem.MenuOptions)
+                        {
+                            if (thing == americanBreakfastDish.ID)
+                            {
+                                MainMenuDishSystem.MenuOptions.Remove(thing);
+                            }
+                        }
+                    }*/
                 }
             };
 

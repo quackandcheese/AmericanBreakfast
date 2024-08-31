@@ -12,6 +12,8 @@
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
+        public override bool IsAvailableAsLobbyOption => true;
+
         public override List<Unlock> HardcodedRequirements => new()
         {
             Refs.AmericanBreakfastDish
