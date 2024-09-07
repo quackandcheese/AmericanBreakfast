@@ -8,7 +8,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override DishType Type => DishType.Base;
         public override GameObject DisplayPrefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfastIcon");
         public override GameObject IconPrefab => DisplayPrefab;
-        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.LargeDecrease;
+        public override DishCustomerChange CustomerMultiplier => DishCustomerChange.SmallDecrease;
         public override CardType CardType => CardType.Default;
         public override Unlock.RewardLevel ExpReward => Unlock.RewardLevel.Small;
         public override UnlockGroup UnlockGroup => UnlockGroup.Dish;
@@ -16,12 +16,10 @@ namespace KitchenAmericanBreakfast.Mains
         public override bool DestroyAfterModUninstall => false;
         public override bool IsUnlockable => true;
         public override bool IsAvailableAsLobbyOption => true;
-        public override int Difficulty => 4;
+        public override int Difficulty => 2;
 
         public override List<string> StartingNameSet => new List<string>
         {
-            "Not Awful Waffles",
-            "Waffle This Way",
             "Flippin' Tasty",
             "Flapjack Fantasy",
             "Batter Up",
@@ -29,9 +27,7 @@ namespace KitchenAmericanBreakfast.Mains
             "Flapjack Factory",
             "Eggcellent Eats",
             "The Pancake Pitstop",
-            "Waffle Wagon",
             "Pancake Party",
-            "Waffle Workshop",
             "Pancake Paradise",
             "Pancake Palace"
         };
@@ -60,7 +56,7 @@ namespace KitchenAmericanBreakfast.Mains
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Combine flour, cracked (or mixed) egg, sugar, and mix together. Portion, cook, plate, and serve. Customers can order up to 3 pancakes in a stack." }
+            { Locale.English, "Combine flour, cracked (or mixed) egg, sugar, and mix together. Portion, cook, plate, and serve. Customers can order 1-2 pancakes in a stack." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

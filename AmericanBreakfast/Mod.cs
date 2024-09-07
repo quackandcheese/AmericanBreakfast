@@ -136,7 +136,7 @@ namespace KitchenAmericanBreakfast
 
             // Pancakes
             AddGameDataObject<AmericanBreakfastDish>();
-            //AddGameDataObject<TripleStackCard>();
+            AddGameDataObject<TripleStackCard>();
 
             AddGameDataObject<Batter>();
             AddGameDataObject<BatterPortion>();

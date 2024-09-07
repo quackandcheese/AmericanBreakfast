@@ -27,7 +27,7 @@ namespace KitchenAmericanBreakfast.Mains
             },
             new ItemSet()
             {
-                Max = 3,
+                Max = 2,
                 Min = 1,
                 IsMandatory = true,
                 Items = new List<Item>()

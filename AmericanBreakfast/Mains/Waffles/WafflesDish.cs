@@ -18,6 +18,15 @@ namespace KitchenAmericanBreakfast.Mains
         public override bool IsAvailableAsLobbyOption => true;
         public override int Difficulty => 2;
 
+        public override List<string> StartingNameSet => new List<string>
+        {
+            "Not Awful Waffles",
+            "Waffle This Way",
+            "Batter Up",
+            "Waffle Wagon",
+            "Waffle Workshop",
+        };
+
         public override List<Unlock> HardcodedRequirements => new()
         {
             Refs.AmericanBreakfastDish
