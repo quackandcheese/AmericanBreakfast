@@ -28,6 +28,11 @@
             new Dish.IngredientUnlock
             {
                 Ingredient = Refs.SyrupBottle,
+                MenuItem = Refs.TriplePlatedPancakes
+            },
+            new Dish.IngredientUnlock
+            {
+                Ingredient = Refs.SyrupBottle,
                 MenuItem = Refs.PlatedWaffles
             }
         };

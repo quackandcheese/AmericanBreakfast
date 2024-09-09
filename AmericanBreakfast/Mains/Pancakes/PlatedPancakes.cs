@@ -8,7 +8,7 @@ namespace KitchenAmericanBreakfast.Mains
         public override GameObject Prefab => Mod.Bundle.LoadAsset<GameObject>("AmericanBreakfast");
         public override ItemCategory ItemCategory => ItemCategory.Generic;
         public override ItemStorage ItemStorageFlags => ItemStorage.None;
-        public override ItemValue ItemValue => ItemValue.Large;
+        public override ItemValue ItemValue => ItemValue.Medium;
         public override Item DisposesTo => Refs.Plate;
         public override Item DirtiesTo => Refs.DirtyPlate;
         public override bool CanContainSide => true;

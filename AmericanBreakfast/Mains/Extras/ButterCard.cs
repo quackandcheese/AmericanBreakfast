@@ -28,6 +28,11 @@
             new Dish.IngredientUnlock
             {
                 Ingredient = Refs.ButterSlice,
+                MenuItem = Refs.TriplePlatedPancakes
+            },
+            new Dish.IngredientUnlock
+            {
+                Ingredient = Refs.ButterSlice,
                 MenuItem = Refs.PlatedWaffles
             }
         };

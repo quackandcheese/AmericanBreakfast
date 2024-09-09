@@ -74,6 +74,7 @@ namespace KitchenAmericanBreakfast
         // Items
         public static Item Pancake => Find<Item, Pancake>();
         public static ItemGroup PlatedPancakes => Find<ItemGroup, PlatedPancakes>();
+        public static ItemGroup TriplePlatedPancakes => Find<ItemGroup, TriplePlatedPancakes>();
         public static ItemGroup UnmixedBatter => Find<ItemGroup, UnmixedBatter>();
         public static Item Batter => Find<Item, Batter>();
         public static Item BatterPortion => Find<Item, BatterPortion>();
