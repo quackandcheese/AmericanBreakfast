@@ -5,7 +5,7 @@ namespace KitchenAmericanBreakfast.Mains
     class TriplePlatedPancakes : PlatedPancakes
     {
         public override string UniqueNameID => "TriplePlatedPancakes";
-        public override ItemValue ItemValue => ItemValue.MediumLarge;
+        public override ItemValue ItemValue => ItemValue.Medium;
         public override List<ItemSet> Sets => new List<ItemSet>()
         {
             new ItemSet()

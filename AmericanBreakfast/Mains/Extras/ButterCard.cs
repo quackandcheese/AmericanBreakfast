@@ -41,14 +41,10 @@
         {
             Refs.Butter
         };
-        public override HashSet<Process> RequiredProcesses => new HashSet<Process>
-        {
-            Refs.Chop
-        };
 
         public override Dictionary<Locale, string> Recipe => new Dictionary<Locale, string>
         {
-            { Locale.English, "Portion a slice, and add to plated breakfast." }
+            { Locale.English, "Add butter to plated breakfast." }
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {

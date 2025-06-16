@@ -42,7 +42,8 @@ namespace KitchenAmericanBreakfast.Mains
             "Hard-boiled service",
             "No yolks about it",
             "I love puns",
-            "Egg Pun"
+            "Egg Pun",
+            "You cannot eggscape"
         };
 
         public override List<Dish.MenuItem> ResultingMenuItems => new List<Dish.MenuItem>
@@ -74,7 +75,7 @@ namespace KitchenAmericanBreakfast.Mains
         };
         public override List<(Locale, UnlockInfo)> InfoList => new()
         {
-            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Omelettes", "Adds tomato and basil omelettes as a main", null) )
+            ( Locale.English, LocalisationUtils.CreateUnlockInfo("Omelettes", "Adds tomato and spinach omelettes as a main", null) )
         };
 
         public override void OnRegister(GameDataObject gameDataObject)
